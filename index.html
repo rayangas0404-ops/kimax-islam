@@ -4,135 +4,942 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#08130f">
-<meta name="description" content="KIMAX ISLAM — Coran, prières, invocations et outils pour accompagner votre quotidien spirituel.">
+<meta name="description" content="KIMAX ISLAM — Coran avec audio, horaires de prière, tasbih, 99 noms d’Allah, douas, zakat, Qibla, calendrier islamique et quiz.">
 <title>KIMAX ISLAM — Votre espace spirituel</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='30' fill='%230e1d16' stroke='%23d8bd7b' stroke-width='3'/%3E%3Cpath d='M38 14a18 18 0 1 0 0 36 14 14 0 1 1 0-36z' fill='%23f0dda9'/%3E%3C/svg%3E">
+<script>document.documentElement.classList.add("js")</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#07110d;--surface:#0e1d16;--surface2:#13271d;--gold:#d8bd7b;--gold2:#f0dda9;--cream:#f6f1e5;--muted:#a6b1a6;--line:#294333;--green:#8fae8d;--shadow:0 24px 70px #0007}
-*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:100px}body{margin:0;background:radial-gradient(ellipse at 50% -15%,#244632 0,transparent 42%),var(--bg);color:var(--cream);font-family:"DM Sans",sans-serif;line-height:1.65}a{color:inherit;text-decoration:none}button,input,select{font:inherit}button{cursor:pointer}button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible{outline:2px solid var(--gold2);outline-offset:3px}
-header{position:sticky;top:0;z-index:20;background:#07110de8;backdrop-filter:blur(18px);border-bottom:1px solid #ffffff12}.head-inner{max-width:1200px;margin:auto;padding:13px 24px;display:flex;align-items:center;justify-content:space-between;gap:22px}.brand{display:flex;align-items:center;gap:12px;min-width:max-content}.brand-mark{width:42px;height:42px;border:1px solid #d8bd7b88;border-radius:50%;display:grid;place-items:center;color:var(--gold);font-size:23px}.brand-name{font-weight:700;letter-spacing:3px;color:var(--gold2);font-size:17px}.brand-sub{font-size:9px;letter-spacing:2px;color:var(--muted)}nav{display:flex;gap:19px;align-items:center;flex-wrap:wrap;justify-content:flex-end}nav a{font-size:12px;color:#d4ddd4;transition:.2s}nav a:hover{color:var(--gold2)}
-.hero{min-height:570px;display:grid;place-items:center;text-align:center;padding:90px 20px 100px;position:relative;overflow:hidden;background:linear-gradient(180deg,#07110d66,#07110df2),url("https://images.unsplash.com/photo-1519817650390-64a93db51149?auto=format&fit=crop&w=2000&q=85") center/cover}.hero:before,.hero:after{content:"";position:absolute;width:380px;height:380px;border:1px solid #d8bd7b20;transform:rotate(45deg);pointer-events:none}.hero:before{left:-250px;top:80px}.hero:after{right:-250px;bottom:-180px}.hero-content{max-width:800px;position:relative}.eyebrow{color:var(--gold2);letter-spacing:5px;font-size:10px;text-transform:uppercase}.hero h1{font:600 clamp(48px,8vw,86px)/1.1 "Playfair Display",serif;letter-spacing:4px;color:var(--gold2);margin:20px 0;text-shadow:0 8px 35px #0008}.hero p{max-width:610px;margin:0 auto;color:#e2e6df;font-size:16px}.hero-arabic{font:38px "Amiri",serif;color:#f0dda9;margin:18px 0 8px}.actions{margin-top:28px;display:flex;justify-content:center;gap:12px;flex-wrap:wrap}
-.btn{border:1px solid var(--gold);border-radius:999px;padding:12px 21px;background:linear-gradient(135deg,#e7d29d,#c6a75f);color:#172016;font-weight:700;font-size:12px;letter-spacing:.5px;box-shadow:0 8px 25px #c6a75f22;transition:.2s}.btn:hover{transform:translateY(-2px);filter:brightness(1.07)}.btn-ghost{background:#07110d88;color:var(--gold2);box-shadow:none}.btn-small{padding:8px 15px;font-size:11px}
-main{overflow:hidden}.section{max-width:1160px;margin:auto;padding:76px 24px;text-align:center}.section-kicker{font-size:10px;letter-spacing:4px;text-transform:uppercase;color:var(--green)}.section-title{font:600 clamp(28px,4vw,40px)/1.2 "Playfair Display",serif;color:var(--gold2);margin:9px 0}.section-desc{color:var(--muted);max-width:650px;margin:0 auto;font-size:14px}.ornament{display:flex;align-items:center;justify-content:center;gap:12px;color:var(--gold);margin:18px auto 28px}.ornament:before,.ornament:after{content:"";width:42px;height:1px;background:linear-gradient(90deg,transparent,var(--gold))}.ornament:after{transform:rotate(180deg)}
-.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;margin-top:30px;text-align:left}.card{background:linear-gradient(145deg,#14271d,#0c1912);border:1px solid var(--line);border-radius:18px;padding:23px;box-shadow:0 12px 35px #0002;transition:.25s}.card:hover{transform:translateY(-4px);border-color:#b89d61aa}.card-icon{font-size:25px}.card h3{font:600 20px "Playfair Display",serif;color:var(--gold2);margin:10px 0 5px}.card p{margin:5px 0;color:#d4ddd4;font-size:13px}.muted{color:var(--muted)!important}.feature-card{min-height:190px}
-.panel{background:linear-gradient(145deg,#102219,#0b1711);border:1px solid var(--line);border-radius:22px;padding:clamp(20px,4vw,34px);box-shadow:var(--shadow);margin-top:28px}.field{background:#07130d;color:var(--cream);border:1px solid #35523e;border-radius:10px;padding:12px 14px;max-width:100%;min-width:190px}.field::placeholder{color:#829187}.status{color:var(--gold2);font-size:13px;margin:15px 0}.verse{padding:24px 8px;border-bottom:1px solid #ffffff14;text-align:right}.verse:last-child{border:0}.arabic{direction:rtl;font:32px/2.1 "Amiri",serif;color:#f0dda9}.translation{direction:ltr;text-align:left;color:#e1e5dc;font-size:14px}.translit{direction:ltr;text-align:left;color:var(--green);font-size:12px}.verse-actions{text-align:left;margin-top:10px}.audio{width:100%;margin-top:20px;accent-color:var(--gold)}.favorite-btn{background:none;border:1px solid #9d8753;color:var(--gold2);border-radius:999px;padding:7px 12px}.prayer-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(135px,1fr));gap:12px;margin-top:24px}.prayer{background:#0a1710;border:1px solid var(--line);border-radius:14px;padding:17px 8px}.prayer strong{display:block;color:var(--gold);font-size:13px}.prayer span{font-size:23px;font-weight:700}.counter{font-size:76px;line-height:1.2;color:var(--gold2);font-weight:700;font-variant-numeric:tabular-nums}.progress{height:7px;background:#2b3a2e;border-radius:9px;overflow:hidden;margin:15px 0}.progress div{height:100%;width:0;background:linear-gradient(90deg,#9b814c,#f0dda9);transition:.2s}.counter-actions{display:flex;justify-content:center;gap:10px;flex-wrap:wrap}.dua-card{text-align:center}.dua-card .arabic{font-size:27px}.daily-quote{font:25px/1.7 "Playfair Display",serif;color:#f1e7cf}.qibla-degree{font:600 42px "Playfair Display",serif;color:var(--gold2)}.compass{width:140px;height:140px;margin:18px auto;border:1px solid #b99c5c88;border-radius:50%;display:grid;place-items:center;position:relative;background:radial-gradient(circle,#203b2a,#0a1710)}.compass span{font-size:52px;transform:rotate(0deg);display:block}.empty{color:var(--muted);font-size:13px;padding:18px}.hidden{display:none!important}
-footer{border-top:1px solid var(--line);text-align:center;padding:45px 20px;background:#06100b;color:var(--muted);font-size:12px}footer .brand{justify-content:center}footer strong{color:var(--gold2)}.toast{position:fixed;bottom:22px;left:50%;transform:translate(-50%,20px);opacity:0;pointer-events:none;background:#1b3022;border:1px solid var(--gold);color:var(--gold2);padding:11px 18px;border-radius:999px;z-index:50;transition:.25s}.toast.show{opacity:1;transform:translate(-50%,0)}
+:root{
+  --bg:#07110d;--gold:#d8bd7b;--gold2:#f0dda9;--cream:#f6f1e5;--muted:#a6b1a6;--line:#294333;--green:#8fae8d;
+  --shadow:0 24px 70px #0007;
+  --card-bg:linear-gradient(145deg,#14271d,#0c1912);
+  --panel-bg:linear-gradient(145deg,#102219,#0b1711);
+  --field-bg:#07130d;--field-line:#35523e;--hair:#ffffff14;--chip:#14271d;--header-bg:#07110de8;--footer-bg:#06100b;
+  --ink:#172016;--red:#ce1126;
+}
+.theme-light{
+  --bg:#f3f0e7;--cream:#1d2b22;--muted:#5d6b60;--line:#d8cfb8;--gold:#9c793b;--gold2:#80612c;--green:#547b5a;
+  --shadow:0 20px 50px #5b4a2418;
+  --card-bg:linear-gradient(145deg,#fffdf7,#eee9dc);--panel-bg:linear-gradient(145deg,#fffdf7,#efe9db);
+  --field-bg:#fffdf7;--field-line:#c9bea4;--hair:#00000014;--chip:#f3ecd9;--header-bg:#f3f0e7ed;--footer-bg:#e9e4d7;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:90px}
+body{margin:0;background:radial-gradient(ellipse at 50% -15%,#244632 0,transparent 42%),var(--bg);color:var(--cream);font-family:"DM Sans",sans-serif;line-height:1.65;-webkit-tap-highlight-color:transparent}
+.theme-light{background:radial-gradient(ellipse at 50% -15%,#e4dcc7 0,transparent 42%),var(--bg)}
+a{color:inherit;text-decoration:none}button,input,select{font:inherit}button{cursor:pointer}
+:focus-visible{outline:2px solid var(--gold2);outline-offset:3px}
+.hidden{display:none!important}
+.muted{color:var(--muted)!important}
+.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
 
-/* Édition Signature : détails d’interface et confort de lecture */
+/* Barre de progression + retour en haut */
+#progress{position:fixed;top:0;left:0;height:3px;width:0;background:linear-gradient(90deg,#9b814c,#f0dda9);z-index:60}
+#toTop{position:fixed;right:18px;bottom:20px;width:44px;height:44px;border-radius:50%;border:1px solid var(--gold);background:var(--header-bg);color:var(--gold2);font-size:18px;z-index:30;opacity:0;pointer-events:none;transform:translateY(10px);transition:.25s;backdrop-filter:blur(10px)}
+#toTop.show{opacity:1;pointer-events:auto;transform:none}
+
+/* Header */
+header{position:sticky;top:0;z-index:40;background:var(--header-bg);backdrop-filter:blur(18px);border-bottom:1px solid var(--hair)}
+.head-inner{max-width:1240px;margin:auto;padding:10px 22px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.brand{display:flex;align-items:center;gap:12px;min-width:max-content}
+.brand-mark{width:42px;height:42px;border:1px solid #d8bd7b88;border-radius:50%;display:grid;place-items:center;color:var(--gold);font-size:23px}
+.brand-name{font-weight:700;letter-spacing:3px;color:var(--gold2);font-size:17px}
+.brand-sub{font-size:9px;letter-spacing:2px;color:var(--muted)}
+nav{display:flex;gap:4px;align-items:center}
+nav a{font-size:12.5px;color:var(--cream);opacity:.85;padding:7px 12px;border-radius:999px;transition:.2s}
+nav a:hover{color:var(--gold2);opacity:1}
+nav a[aria-current="true"]{background:#d8bd7b22;color:var(--gold2);opacity:1}
 .header-tools{display:flex;align-items:center;gap:8px}
-.icon-tool{width:38px;height:38px;border-radius:50%;border:1px solid #9d875366;background:#102219;color:var(--gold2);font-size:18px}
-.hero-content{animation:rise .8s ease both}
-@keyframes rise{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
-.card,.panel{backdrop-filter:blur(8px)}
-.card:focus-within{border-color:var(--gold)}
-.section{scroll-margin-top:90px}
-.quick-strip{max-width:1100px;margin:-34px auto 0;position:relative;z-index:2;padding:0 20px}
-.quick-inner{display:grid;grid-template-columns:repeat(3,1fr);background:#102219;border:1px solid #8c754644;border-radius:18px;box-shadow:var(--shadow);overflow:hidden}
-.quick-item{padding:17px 12px;text-align:center;border-right:1px solid #ffffff12}
-.quick-item:last-child{border:0}.quick-label{font-size:10px;text-transform:uppercase;letter-spacing:1.8px;color:var(--muted)}.quick-value{font:600 19px "Playfair Display",serif;color:var(--gold2)}
-.quran-toolbar{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin:18px 0}
-.search-field{min-width:min(280px,100%)}
-.verse{position:relative}.verse-number{display:inline-grid;place-items:center;width:28px;height:28px;border:1px solid #a88c52;border-radius:50%;color:var(--gold2);font-size:11px;margin-left:8px}
-.verse-tools{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
-.verse-tool{background:#14271d;border:1px solid #35523e;border-radius:999px;color:var(--gold2);padding:6px 11px;font-size:11px}
-.prayer-highlight{border-color:var(--gold)!important;box-shadow:0 0 0 1px #d8bd7b33,0 10px 30px #0003}
-.prayer-note{font-size:12px;color:var(--green);margin-top:15px}
-#nextPrayer{font:600 22px "Playfair Display",serif;color:var(--gold2)}
-.theme-light{--bg:#f3f0e7;--surface:#fffdf7;--surface2:#e9e3d3;--cream:#1d2b22;--muted:#647267;--line:#d8cfb8;--gold:#9c793b;--gold2:#80612c;--green:#547b5a;background:radial-gradient(ellipse at 50% -15%,#e4dcc7 0,transparent 42%),var(--bg);color:var(--cream)}
-.theme-light header{background:#f3f0e7ed}.theme-light .card,.theme-light .panel,.theme-light .quick-inner{background:linear-gradient(145deg,#fffdf7,#eee9dc)}.theme-light .hero{background:linear-gradient(180deg,#07110d55,#07110dc9),url("https://images.unsplash.com/photo-1519817650390-64a93db51149?auto=format&fit=crop&w=2000&q=85") center/cover}.theme-light .field{background:#fffdf7;color:#1d2b22;border-color:#c9bea4}.theme-light .prayer{background:#fffdf7}.theme-light .verse{border-color:#ddd4c0}.theme-light .translation{color:#344238}.theme-light footer{background:#e9e4d7}
-@media(max-width:780px){.header-tools{position:absolute;right:12px;top:12px}.head-inner{position:relative;padding-top:13px}.quick-strip{margin:-25px auto 0}.quick-inner{grid-template-columns:1fr 1fr}.quick-item:last-child{grid-column:1/-1;border-top:1px solid #ffffff12}.quick-item:nth-child(2){border-right:0}}
-@media(max-width:440px){.quick-value{font-size:16px}.quick-item{padding:13px 7px}}
+.icon-tool{width:38px;height:38px;border-radius:50%;border:1px solid #9d875366;background:var(--chip);color:var(--gold2);font-size:17px;display:grid;place-items:center;transition:.2s}
+.icon-tool:hover{border-color:var(--gold)}
 
-@media(max-width:780px){.head-inner{display:block;text-align:center}.brand{justify-content:center}nav{justify-content:center;gap:12px;margin-top:12px}nav a{font-size:11px}.hero{min-height:490px}.section{padding:58px 17px}}@media(max-width:440px){.brand-name{font-size:15px}.hero h1{letter-spacing:2px}.hero p{font-size:14px}.arabic{font-size:27px}}
+/* Bouton don Palestine */
+.pal-donate{display:flex;align-items:center;gap:11px;padding:5px 15px 5px 6px;border:1px solid #d8bd7b66;border-radius:999px;background:var(--panel-bg);color:var(--gold2);box-shadow:0 8px 24px #0004;transition:.25s;min-width:max-content}
+.pal-donate:hover{transform:translateY(-2px);border-color:var(--gold);box-shadow:0 12px 30px #0006,0 0 0 3px #ce112622}
+.pal-flag{position:relative;width:46px;height:31px;border-radius:6px;overflow:hidden;box-shadow:0 3px 10px #0007,inset 0 0 0 1px #ffffff22;animation:palwave 3.2s ease-in-out infinite;transform-origin:left center}
+.pal-flag svg{display:block;width:100%;height:100%}
+.pal-flag:after{content:"";position:absolute;inset:0;background:linear-gradient(105deg,transparent 30%,#ffffff55 50%,transparent 70%);transform:translateX(-120%);animation:palshine 3.2s ease-in-out infinite}
+@keyframes palwave{0%,100%{transform:perspective(200px) rotateY(0) skewY(0)}50%{transform:perspective(200px) rotateY(-9deg) skewY(-2deg)}}
+@keyframes palshine{0%,35%{transform:translateX(-120%)}75%,100%{transform:translateX(120%)}}
+.pal-text{display:flex;flex-direction:column;line-height:1.2;text-align:left}
+.pal-text strong{font-size:12px;letter-spacing:.4px;color:var(--gold2)}
+.pal-text small{font-size:10px;color:var(--muted);letter-spacing:.8px}
+.pal-heart{color:var(--red)}
+
+/* Menu plein écran */
+.menu{position:fixed;inset:0;z-index:70;background:#050c09f2;backdrop-filter:blur(14px);overflow:auto;padding:24px;animation:fade .25s ease}
+.theme-light .menu{background:#f3f0e7f5}
+.menu-inner{max-width:980px;margin:auto}
+.menu-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:22px}
+.menu-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:12px}
+@keyframes fade{from{opacity:0}to{opacity:1}}
+
+/* Hero */
+.hero{min-height:620px;display:grid;place-items:center;text-align:center;padding:90px 20px 110px;position:relative;overflow:hidden;background:linear-gradient(180deg,#07110d66,#07110df2),url("https://images.unsplash.com/photo-1519817650390-64a93db51149?auto=format&fit=crop&w=2000&q=85") center/cover,#0b1a13}
+.hero:before{content:"";position:absolute;inset:0;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='90' height='90' viewBox='0 0 90 90' fill='none' stroke='%23d8bd7b' stroke-opacity='.13'%3E%3Crect x='25' y='25' width='40' height='40'/%3E%3Crect x='25' y='25' width='40' height='40' transform='rotate(45 45 45)'/%3E%3Ccircle cx='45' cy='45' r='9'/%3E%3C/svg%3E");mask-image:radial-gradient(ellipse at center,#000 20%,transparent 75%);-webkit-mask-image:radial-gradient(ellipse at center,#000 20%,transparent 75%);pointer-events:none}
+#stars{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+.hero-content{max-width:820px;position:relative;animation:rise .9s ease both}
+@keyframes rise{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+.moon{width:58px;height:58px;margin:0 auto 14px;border-radius:50%;box-shadow:inset -15px -4px 0 0 var(--gold2),0 0 40px #f0dda944;animation:float 6s ease-in-out infinite}
+@keyframes float{0%,100%{transform:translateY(0) rotate(-8deg)}50%{transform:translateY(-8px) rotate(-8deg)}}
+.eyebrow{color:#f0dda9;letter-spacing:5px;font-size:10px;text-transform:uppercase}
+.hero-arabic{font:40px "Amiri",serif;color:#f0dda9;margin:14px 0 4px}
+.hero h1{font:600 clamp(48px,8vw,88px)/1.1 "Playfair Display",serif;letter-spacing:4px;margin:14px 0 18px;background:linear-gradient(180deg,#fff4cf,#d8bd7b 70%,#b8963f);-webkit-background-clip:text;background-clip:text;color:transparent;filter:drop-shadow(0 8px 30px #0009)}
+.hero p{max-width:620px;margin:0 auto;color:#e8ece4;font-size:16px}
+.actions{margin-top:28px;display:flex;justify-content:center;gap:12px;flex-wrap:wrap}
+.hero-chips{display:flex;justify-content:center;flex-wrap:wrap;gap:10px;margin-top:30px}
+.hero-chips span{font-size:11px;letter-spacing:1.2px;padding:6px 14px;border:1px solid #d8bd7b44;border-radius:999px;background:#07110d88;color:#f0dda9}
+
+.btn{border:1px solid var(--gold);border-radius:999px;padding:12px 21px;background:linear-gradient(135deg,#e7d29d,#c6a75f);color:var(--ink);font-weight:700;font-size:12px;letter-spacing:.5px;box-shadow:0 8px 25px #c6a75f22;transition:.2s;display:inline-block}
+.btn:hover{transform:translateY(-2px);filter:brightness(1.07)}
+.btn-ghost{background:#07110d88;color:#f0dda9;box-shadow:none}
+.theme-light .section .btn-ghost,.theme-light .panel .btn-ghost{background:transparent;color:var(--gold2)}
+.btn-small{padding:8px 15px;font-size:11px}
+
+/* Bandeau rapide */
+.quick-strip{max-width:1100px;margin:-38px auto 0;position:relative;z-index:2;padding:0 20px}
+.quick-inner{display:grid;grid-template-columns:repeat(4,1fr);background:var(--panel-bg);border:1px solid #8c754655;border-radius:18px;box-shadow:var(--shadow);overflow:hidden}
+.quick-item{padding:16px 12px;text-align:center;border-right:1px solid var(--hair)}
+.quick-item:last-child{border:0}
+.quick-label{font-size:10px;text-transform:uppercase;letter-spacing:1.8px;color:var(--muted)}
+.quick-value{font:600 18px "Playfair Display",serif;color:var(--gold2)}
+
+/* Sections */
+main{overflow:hidden}
+.section{max-width:1160px;margin:auto;padding:74px 24px;text-align:center;scroll-margin-top:80px}
+.section-kicker{font-size:10px;letter-spacing:4px;text-transform:uppercase;color:var(--green)}
+.section-title{font:600 clamp(28px,4vw,40px)/1.2 "Playfair Display",serif;color:var(--gold2);margin:9px 0}
+.section-desc{color:var(--muted);max-width:660px;margin:0 auto;font-size:14px}
+.ornament{display:flex;align-items:center;justify-content:center;gap:12px;color:var(--gold);margin:18px auto 28px}
+.ornament:before,.ornament:after{content:"";width:42px;height:1px;background:linear-gradient(90deg,transparent,var(--gold))}
+.ornament:after{transform:rotate(180deg)}
+.js .reveal{opacity:0;transform:translateY(26px);transition:opacity .7s ease,transform .7s ease}
+.js .reveal.in{opacity:1;transform:none}
+
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:16px;margin-top:30px;text-align:left}
+.card{background:var(--card-bg);border:1px solid var(--line);border-radius:18px;padding:22px;box-shadow:0 12px 35px #0002;transition:.25s;position:relative;backdrop-filter:blur(8px)}
+.card:hover{transform:translateY(-4px);border-color:#b89d61aa}
+.card-icon{font-size:26px}
+.card h3{font:600 20px "Playfair Display",serif;color:var(--gold2);margin:10px 0 5px}
+.card p{margin:5px 0;color:var(--cream);opacity:.9;font-size:13px}
+.feature-card{min-height:150px;display:block}
+.feature-card:after{content:"→";position:absolute;right:18px;bottom:14px;color:var(--gold);opacity:0;transform:translateX(-6px);transition:.25s}
+.feature-card:hover:after{opacity:1;transform:none}
+.panel{background:var(--panel-bg);border:1px solid var(--line);border-radius:22px;padding:clamp(20px,4vw,34px);box-shadow:var(--shadow);margin-top:28px;backdrop-filter:blur(8px)}
+.field{background:var(--field-bg);color:var(--cream);border:1px solid var(--field-line);border-radius:10px;padding:12px 14px;max-width:100%;min-width:170px}
+.field::placeholder{color:#829187}
+.status{color:var(--gold2);font-size:13px;margin:15px 0}
+.row{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;align-items:center}
+.chip{background:var(--chip);border:1px solid var(--field-line);border-radius:999px;color:var(--gold2);padding:7px 14px;font-size:12px;transition:.2s}
+.chip:hover{border-color:var(--gold)}
+.chip.active{background:linear-gradient(135deg,#e7d29d,#c6a75f);color:var(--ink);border-color:var(--gold);font-weight:700}
+
+/* Coran */
+.quran-toolbar{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin:6px 0 14px}
+.reader-opts{display:flex;justify-content:center;gap:18px;flex-wrap:wrap;margin:16px 0 4px;font-size:12px;color:var(--muted);align-items:center}
+.reader-opts label{display:flex;gap:7px;align-items:center}
+.reader-opts input[type=range]{accent-color:var(--gold);width:120px}
+.surah-head{text-align:center;margin:14px 0 6px}
+.surah-head .arabic{text-align:center;font-size:44px}
+.surah-actions{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:12px}
+.verse{padding:22px 8px;border-bottom:1px solid var(--hair);text-align:right;position:relative;transition:background .3s;border-radius:12px}
+.verse:last-child{border:0}
+.verse.playing{background:#d8bd7b18}
+.arabic{direction:rtl;font:var(--ar-size,32px)/2.1 "Amiri",serif;color:var(--gold2)}
+.translation{direction:ltr;text-align:left;color:var(--cream);opacity:.88;font-size:14px}
+.verse-tools{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+.verse-tool{background:var(--chip);border:1px solid var(--field-line);border-radius:999px;color:var(--gold2);padding:6px 12px;font-size:11px}
+.verse-tool:hover{border-color:var(--gold)}
+.favorite-btn{background:none;border:1px solid #9d8753;color:var(--gold2);border-radius:999px;padding:7px 14px;font-size:12px}
+.hide-tr .translation{display:none}
+
+/* Prières */
+.prayer-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(135px,1fr));gap:12px;margin-top:24px}
+.prayer{background:var(--field-bg);border:1px solid var(--line);border-radius:14px;padding:17px 8px;transition:.3s}
+.prayer strong{display:block;color:var(--gold);font-size:13px}
+.prayer span{font-size:24px;font-weight:700}
+.prayer-highlight{border-color:var(--gold)!important;box-shadow:0 0 0 1px #d8bd7b33,0 10px 30px #0003;transform:translateY(-3px)}
+#nextPrayer{font:600 22px "Playfair Display",serif;color:var(--gold2);margin-top:16px}
+.tracker{margin-top:34px;padding-top:26px;border-top:1px solid var(--hair)}
+.tracker h3{font:600 20px "Playfair Display",serif;color:var(--gold2);margin:0 0 4px}
+.track-btns{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin:16px 0}
+.track-btn{min-width:92px;padding:11px 14px;border-radius:14px;border:1px solid var(--field-line);background:var(--chip);color:var(--cream);font-size:13px;transition:.2s}
+.track-btn.done{background:linear-gradient(135deg,#e7d29d,#c6a75f);color:var(--ink);border-color:var(--gold);font-weight:700}
+.week{display:flex;gap:8px;justify-content:center;align-items:flex-end;height:64px;margin-top:10px}
+.week div{width:30px;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;gap:4px;font-size:10px;color:var(--muted)}
+.week i{display:block;width:100%;border-radius:6px 6px 3px 3px;background:linear-gradient(180deg,#f0dda9,#9b814c);min-height:4px;opacity:.9}
+
+/* Tasbih */
+.dhikr-pick{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-bottom:18px}
+.dhikr-ar{font:34px/1.8 "Amiri",serif;color:var(--gold2)}
+.ring{--p:0;width:min(250px,70vw);aspect-ratio:1;border-radius:50%;margin:18px auto;display:grid;place-items:center;background:conic-gradient(var(--gold2) calc(var(--p)*1%),#2b3a2e 0);padding:9px;transition:background .2s}
+.theme-light .ring{background:conic-gradient(var(--gold) calc(var(--p)*1%),#d8cfb8 0)}
+.ring-btn{width:100%;height:100%;border-radius:50%;border:0;background:radial-gradient(circle at 35% 30%,#1f3a2a,#0a1710);color:var(--gold2);display:grid;place-items:center;font:700 64px/1 "DM Sans",sans-serif;font-variant-numeric:tabular-nums;user-select:none;transition:transform .08s}
+.theme-light .ring-btn{background:radial-gradient(circle at 35% 30%,#fffdf7,#e8e0cb)}
+.ring-btn:active{transform:scale(.96)}
+.ring-btn small{display:block;font:500 11px "DM Sans";letter-spacing:2px;color:var(--muted);margin-top:6px}
+.counter-actions{display:flex;justify-content:center;gap:10px;flex-wrap:wrap}
+
+/* Noms d’Allah */
+.asma-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:12px;margin-top:22px}
+.asma{background:var(--card-bg);border:1px solid var(--line);border-radius:16px;padding:16px 10px;text-align:center;transition:.25s}
+.asma:hover{border-color:var(--gold);transform:translateY(-3px)}
+.asma .n{font-size:10px;color:var(--muted);letter-spacing:1px}
+.asma .ar{font:28px/1.7 "Amiri",serif;color:var(--gold2);min-height:48px}
+.asma strong{display:block;color:var(--gold);font-size:12.5px}
+.asma span{display:block;font-size:12px;color:var(--cream);opacity:.85;line-height:1.4;margin-top:2px}
+.asma-feature{max-width:520px;margin:0 auto 6px}
+.asma-feature .ar{font-size:54px}
+
+/* Douas & hadiths */
+.dua-card{text-align:center;display:flex;flex-direction:column}
+.dua-card .arabic{font-size:25px;line-height:2}
+.dua-card .cat{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--green)}
+.dua-card .src{font-size:11px;color:var(--muted)}
+.dua-card .verse-tools{justify-content:center;margin-top:auto;padding-top:10px}
+.hadith-card p.q{font:19px/1.6 "Playfair Display",serif;color:var(--cream)}
+.today-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:18px;margin-top:10px;text-align:left}
+.today-grid .arabic{font-size:28px}
+.tag{display:inline-block;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--green);margin-bottom:6px}
+
+/* Apprendre */
+.acc{max-width:820px;margin:28px auto 0;text-align:left;display:grid;gap:10px}
+details{background:var(--card-bg);border:1px solid var(--line);border-radius:16px;overflow:hidden}
+summary{cursor:pointer;padding:16px 20px;font:600 18px "Playfair Display",serif;color:var(--gold2);list-style:none;display:flex;justify-content:space-between;align-items:center;gap:10px}
+summary::-webkit-details-marker{display:none}
+summary:after{content:"＋";color:var(--gold);font-family:"DM Sans"}
+details[open] summary:after{content:"－"}
+details .body{padding:0 22px 20px;font-size:14px;color:var(--cream);opacity:.92}
+details ol,details ul{padding-left:20px;margin:8px 0}
+details li{margin:6px 0}
+.rakaat{display:grid;grid-template-columns:repeat(auto-fit,minmax(110px,1fr));gap:10px;margin-top:10px}
+.rakaat div{background:var(--field-bg);border:1px solid var(--line);border-radius:12px;padding:12px;text-align:center}
+.rakaat b{display:block;font:700 26px "Playfair Display",serif;color:var(--gold2)}
+
+/* Zakat */
+.form-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:14px;text-align:left}
+.form-grid label{font-size:12px;color:var(--muted);display:grid;gap:6px}
+.form-grid .field{width:100%}
+.result{margin-top:22px;padding:20px;border-radius:16px;border:1px dashed var(--gold);font-size:15px}
+.result b{font:700 34px "Playfair Display",serif;color:var(--gold2);display:block}
+
+/* Qibla */
+.compass-svg{width:min(260px,70vw);height:auto;margin:14px auto;display:block;filter:drop-shadow(0 10px 25px #0006)}
+.compass-svg text{fill:var(--gold2);font:600 13px "DM Sans",sans-serif}
+.qibla-degree{font:600 42px "Playfair Display",serif;color:var(--gold2)}
+
+/* Calendrier */
+.events{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin-top:26px;text-align:left}
+.event b{font:700 30px "Playfair Display",serif;color:var(--gold2);display:block}
+.event.soon{border-color:var(--gold);box-shadow:0 0 0 1px #d8bd7b33}
+
+/* Quiz */
+.quiz-q{font:600 22px/1.4 "Playfair Display",serif;color:var(--cream);margin:14px 0}
+.quiz-opts{display:grid;gap:10px;max-width:520px;margin:18px auto}
+.quiz-opt{padding:13px 16px;border-radius:14px;border:1px solid var(--field-line);background:var(--chip);color:var(--cream);text-align:left;transition:.2s}
+.quiz-opt:hover:not(:disabled){border-color:var(--gold)}
+.quiz-opt.ok{background:#2f6b45;border-color:#7fd29a;color:#fff}
+.quiz-opt.ko{background:#6b2f2f;border-color:#d27f7f;color:#fff}
+.quiz-score{font:700 64px "Playfair Display",serif;color:var(--gold2)}
+.progress{height:7px;background:#2b3a2e;border-radius:9px;overflow:hidden;margin:15px auto;max-width:520px}
+.progress div{height:100%;width:0;background:linear-gradient(90deg,#9b814c,#f0dda9);transition:.3s}
+
+.empty{color:var(--muted);font-size:13px;padding:18px}
+footer{border-top:1px solid var(--line);text-align:center;padding:48px 20px 60px;background:var(--footer-bg);color:var(--muted);font-size:12px}
+footer .brand{justify-content:center}footer strong{color:var(--gold2)}
+.foot-links{display:flex;flex-wrap:wrap;gap:6px 18px;justify-content:center;margin:18px 0}
+.foot-links a:hover{color:var(--gold2)}
+.toast{position:fixed;bottom:22px;left:50%;transform:translate(-50%,20px);opacity:0;pointer-events:none;background:#1b3022;border:1px solid var(--gold);color:var(--gold2);padding:11px 18px;border-radius:999px;z-index:90;transition:.25s;max-width:90vw;text-align:center}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+
+@media(max-width:1000px){.pal-text small{display:none}}
+@media(max-width:900px){nav{display:none}}
+@media(max-width:780px){
+  .head-inner{padding:9px 12px;gap:8px}
+  .pal-donate{padding:4px;gap:0}.pal-text{display:none}
+  .brand-sub{display:none}.brand-name{font-size:15px;letter-spacing:2px}.brand-mark{width:36px;height:36px;font-size:19px}
+  .quick-strip{margin-top:-28px}.quick-inner{grid-template-columns:1fr 1fr}
+  .quick-item:nth-child(2){border-right:0}.quick-item:nth-child(-n+2){border-bottom:1px solid var(--hair)}
+  .hero{min-height:520px;padding:70px 16px 90px}.section{padding:56px 16px}
+  .ring-btn{font-size:54px}
+}
+@media(max-width:440px){.hero h1{letter-spacing:2px}.hero p{font-size:14px}.arabic{font-size:27px}.quick-value{font-size:15px}.quick-item{padding:12px 6px}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}html{scroll-behavior:auto}.js .reveal{opacity:1;transform:none}}
 </style>
 </head>
 <body>
+<div id="progress"></div>
 <header><div class="head-inner">
+  <!-- Don Palestine : l’adresse du don se change en haut du script (DON_URL) -->
+  <a class="pal-donate" data-don href="https://www.secours-islamique.org" target="_blank" rel="noopener noreferrer" aria-label="Faire un don pour la Palestine" title="Faire un don pour la Palestine">
+    <span class="pal-flag"><svg viewBox="0 0 60 40" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect width="60" height="13.34" fill="#000"/><rect y="13.33" width="60" height="13.34" fill="#fff"/><rect y="26.66" width="60" height="13.34" fill="#007a3d"/><path d="M0 0L28 20L0 40Z" fill="#ce1126"/></svg></span>
+    <span class="pal-text"><strong>Soutenir la Palestine <span class="pal-heart">♥</span></strong><small>FAIRE UN DON</small></span>
+  </a>
   <a class="brand" href="#accueil"><span class="brand-mark">۞</span><span><span class="brand-name">KIMAX ISLAM</span><br><span class="brand-sub">UN ESPACE POUR LA FOI</span></span></a>
-  <div class="header-tools"><button class="icon-tool" id="themeBtn" type="button" aria-label="Changer le thème" title="Changer le thème">☼</button></div>
-  <nav aria-label="Navigation principale"><a href="#accueil">Accueil</a><a href="#coran">Coran</a><a href="#prieres">Prières</a><a href="#tasbih">Tasbih</a><a href="#douas">Douas</a><a href="#hadiths">Hadiths</a><a href="#qibla">Qibla</a><a href="#calendrier">Calendrier</a><a href="#favoris">Favoris</a></nav>
+  <nav aria-label="Navigation principale" id="mainNav">
+    <a href="#accueil">Accueil</a><a href="#coran">Coran</a><a href="#prieres">Prières</a><a href="#tasbih">Tasbih</a><a href="#douas">Douas</a><a href="#calendrier">Calendrier</a>
+  </nav>
+  <div class="header-tools">
+    <button class="icon-tool" id="themeBtn" type="button" aria-label="Changer le thème" title="Changer le thème">☼</button>
+    <button class="icon-tool" id="menuBtn" type="button" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="menu" title="Menu">☰</button>
+  </div>
 </div></header>
+
+<div id="menu" class="menu hidden" role="dialog" aria-modal="true" aria-label="Menu">
+  <div class="menu-inner">
+    <div class="menu-top"><span class="section-title" style="margin:0">Menu</span><button class="icon-tool" id="menuClose" type="button" aria-label="Fermer le menu">✕</button></div>
+    <div class="menu-grid" id="menuGrid"></div>
+  </div>
+</div>
+
 <main>
-<div class="hero" id="accueil"><div class="hero-content">
-  <div class="eyebrow">✦ Paix · Foi · Rappel ✦</div><div class="hero-arabic">السَّلَامُ عَلَيْكُمْ</div>
-  <h1>KIMAX ISLAM</h1><p>Un espace élégant pour lire, apprendre et nourrir sa spiritualité au quotidien. Que chaque instant soit une occasion de se rapprocher d’Allah.</p>
-  <div class="actions"><a class="btn" href="#coran">DÉCOUVRIR LE CORAN</a><a class="btn btn-ghost" href="#prieres">HORAIRES DE PRIÈRE</a></div>
-</div></div>
+<div class="hero" id="accueil">
+  <canvas id="stars" aria-hidden="true"></canvas>
+  <div class="hero-content">
+    <div class="moon" aria-hidden="true"></div>
+    <div class="eyebrow">✦ Paix · Foi · Rappel ✦</div>
+    <div class="hero-arabic">السَّلَامُ عَلَيْكُمْ</div>
+    <h1>KIMAX ISLAM</h1>
+    <p>Un espace élégant pour lire, écouter, apprendre et nourrir sa spiritualité au quotidien. Que chaque instant soit une occasion de se rapprocher d’Allah.</p>
+    <div class="actions"><a class="btn" href="#coran">DÉCOUVRIR LE CORAN</a><a class="btn btn-ghost" href="#prieres">HORAIRES DE PRIÈRE</a></div>
+    <div class="hero-chips"><span>114 SOURATES</span><span>AUDIO</span><span>99 NOMS D’ALLAH</span><span>QIBLA</span><span>ZAKAT</span></div>
+  </div>
+</div>
+
 <div class="quick-strip"><div class="quick-inner">
   <div class="quick-item"><div class="quick-label">Date du jour</div><div class="quick-value" id="quickDate">—</div></div>
   <div class="quick-item"><div class="quick-label">Date hégirienne</div><div class="quick-value" id="quickHijri">—</div></div>
-  <div class="quick-item"><div class="quick-label">Prochaine étape</div><div class="quick-value" id="quickFocus">Un instant de rappel</div></div>
+  <div class="quick-item"><div class="quick-label">Prochaine prière</div><div class="quick-value" id="quickPrayer"><a href="#prieres">Choisir ma ville</a></div></div>
+  <div class="quick-item"><div class="quick-label">Ramadan</div><div class="quick-value" id="quickRamadan">—</div></div>
 </div></div>
-<section class="section"><div class="section-kicker">Bienvenue</div><h2 class="section-title">Assalamu Alaykum</h2><div class="ornament">✧</div><p class="section-desc">Retrouve ici des outils simples pour accompagner ton quotidien : lecture du Coran, horaires de prière, invocations et rappels.</p>
-<div class="cards">
-<a href="#coran" class="card feature-card"><div class="card-icon">📖</div><h3>Le Saint Coran</h3><p class="muted">Lis les sourates en arabe avec leur traduction française.</p></a>
-<a href="#prieres" class="card feature-card"><div class="card-icon">🕌</div><h3>Les prières</h3><p class="muted">Consulte les horaires selon ta ville.</p></a>
-<a href="#tasbih" class="card feature-card"><div class="card-icon">📿</div><h3>Tasbih</h3><p class="muted">Un compteur discret pour tes adhkar.</p></a>
-<a href="#douas" class="card feature-card"><div class="card-icon">🤲</div><h3>Invocations</h3><p class="muted">Quelques rappels et invocations du quotidien.</p></a>
+
+<section class="section reveal"><div class="section-kicker">Bienvenue</div><h2 class="section-title">Assalamu Alaykum</h2><div class="ornament">✧</div>
+<p class="section-desc">Tout ce qu’il faut pour accompagner ton quotidien, au même endroit.</p>
+<div class="cards" id="tiles"></div></section>
+
+<section class="section reveal" id="aujourdhui"><div class="section-kicker">Chaque jour</div><h2 class="section-title">Aujourd’hui</h2><div class="ornament">۞</div>
+<div class="today-grid">
+  <div class="card" id="votd"><span class="tag">Verset du jour</span><p class="muted">Chargement…</p></div>
+  <div class="card hadith-card" id="hotd"></div>
+  <div class="card" id="notd"></div>
 </div></section>
-<section class="section" id="coran"><div class="section-kicker">Lecture & méditation</div><h2 class="section-title">Le Saint Coran</h2><div class="ornament">۞</div><p class="section-desc">Choisis une sourate pour afficher le texte arabe et une traduction française.</p>
-<div class="panel"><div class="quran-toolbar"><input id="surahSearch" class="field search-field" placeholder="Rechercher une sourate…" aria-label="Rechercher une sourate"></div><select id="surahSelect" class="field" aria-label="Choisir une sourate"><option value="">Chargement des sourates…</option></select> <button class="btn" id="loadSurahBtn">OUVRIR LA SOURATE</button><div id="quranStatus" class="status" role="status"></div><div id="surahInfo"></div><div id="verses"></div></div>
-</section>
-<section class="section" id="prieres"><div class="section-kicker">Organisation quotidienne</div><h2 class="section-title">Horaires de prière</h2><div class="ornament">✧</div><p class="section-desc">Entre le nom de ta ville pour consulter les horaires du jour.</p>
-<div class="panel"><input id="city" class="field" placeholder="Ex. : Strasbourg" autocomplete="address-level2" aria-label="Ville"><button class="btn" id="prayerBtn">RECHERCHER</button><div id="prayerStatus" class="status" role="status"></div><div id="nextPrayer" aria-live="polite"></div><div id="prayerTimes" class="prayer-grid"></div><p class="muted">Les horaires dépendent de la méthode de calcul et des paramètres locaux. Vérifie-les auprès de ta mosquée.</p></div>
-</section>
-<section class="section" id="tasbih"><div class="section-kicker">Un instant de rappel</div><h2 class="section-title">Compteur Tasbih</h2><div class="ornament">✧</div><p class="section-desc">Prends un moment pour te rappeler Allah, à ton rythme.</p>
-<div class="panel"><select id="goal" class="field" aria-label="Objectif du compteur"><option value="33">Objectif : 33</option><option value="99">Objectif : 99</option><option value="100">Objectif : 100</option></select><div id="count" class="counter">0</div><div class="progress"><div id="progressBar"></div></div><p id="progressText" class="muted">0 / 33</p><div class="counter-actions"><button class="btn" id="incrementBtn">＋ COMPTER</button><button class="btn btn-ghost" id="resetBtn">RÉINITIALISER</button></div><p id="tasbihMessage" class="muted">Qu’Allah accepte tes invocations.</p></div>
-</section>
-<section class="section" id="douas"><div class="section-kicker">Rappels du quotidien</div><h2 class="section-title">Invocations & Douas</h2><div class="ornament">۞</div><p class="section-desc">Quelques formules courtes à retrouver au fil de la journée.</p>
-<div class="cards">
-<div class="card doua-card"><h3>Avant de manger</h3><p class="arabic">بِسْمِ اللَّهِ</p><p>Bismillah</p><p class="muted">Au nom d’Allah.</p></div>
-<div class="card doua-card"><h3>Demander pardon</h3><p class="arabic">أَسْتَغْفِرُ اللَّهَ</p><p>Astaghfirullah</p><p class="muted">Je demande pardon à Allah.</p></div>
-<div class="card doua-card"><h3>Remercier Allah</h3><p class="arabic">الْحَمْدُ لِلَّهِ</p><p>Alhamdulillah</p><p class="muted">Louange à Allah.</p></div>
-<div class="card doua-card"><h3>Glorifier Allah</h3><p class="arabic">سُبْحَانَ اللَّهِ</p><p>SubhanAllah</p><p class="muted">Gloire et pureté à Allah.</p></div>
-<div class="card doua-card"><h3>Demander la facilité</h3><p class="arabic">رَبِّ يَسِّرْ وَلَا تُعَسِّرْ</p><p>Rabbi yassir wa la tu’assir</p><p class="muted">Seigneur, facilite et ne rends pas les choses difficiles.</p></div>
-<div class="card doua-card"><h3>En sortant de chez soi</h3><p class="arabic">بِسْمِ اللَّهِ تَوَكَّلْتُ عَلَى اللَّهِ</p><p>Bismillah, tawakkaltu ‘ala Allah</p><p class="muted">Au nom d’Allah, je place ma confiance en Allah.</p></div>
-<div class="card doua-card"><h3>Avant de dormir</h3><p class="arabic">بِاسْمِكَ اللَّهُمَّ أَمُوتُ وَأَحْيَا</p><p>Bismika Allahumma amutu wa ahya</p><p class="muted">En Ton nom, ô Allah, je vis et je meurs.</p></div>
-<div class="card doua-card"><h3>Demander protection</h3><p class="arabic">أَعُوذُ بِاللَّهِ مِنَ الشَّيْطَانِ الرَّجِيمِ</p><p>A’udhu billahi min ash-shaytan ir-rajim</p><p class="muted">Je cherche refuge auprès d’Allah contre Satan le lapidé.</p></div>
+
+<section class="section reveal" id="coran"><div class="section-kicker">Lecture, écoute & méditation</div><h2 class="section-title">Le Saint Coran</h2><div class="ornament">۞</div><p class="section-desc">Lis les sourates en arabe avec leur traduction française, et écoute-les récitées verset par verset.</p>
+<div class="panel">
+  <div class="quran-toolbar"><input id="surahSearch" class="field" placeholder="Rechercher une sourate…" aria-label="Rechercher une sourate"></div>
+  <div class="row"><select id="surahSelect" class="field" aria-label="Choisir une sourate"><option value="">Chargement des sourates…</option></select><button class="btn" id="loadSurahBtn" type="button">OUVRIR LA SOURATE</button></div>
+  <div class="reader-opts">
+    <label>Taille <input type="range" id="arSize" min="24" max="52" value="32" aria-label="Taille du texte arabe"></label>
+    <label><input type="checkbox" id="showTr" checked> Traduction</label>
+    <button class="chip" id="resumeBtn" type="button" hidden>↩ Reprendre ma lecture</button>
+  </div>
+  <div id="quranStatus" class="status" role="status"></div><div id="surahInfo"></div><div id="verses"></div>
 </div></section>
-<section class="section" id="hadiths"><div class="section-kicker">Paroles & enseignements</div><h2 class="section-title">Hadiths & enseignements</h2><div class="ornament">✧</div><div class="cards">
-<div class="card"><h3>Les intentions</h3><p>« Les actes ne valent que par les intentions. »</p><p class="muted">Al-Bukhari et Muslim — traduction du sens.</p></div>
-<div class="card"><h3>La miséricorde</h3><p>« Celui qui ne fait pas miséricorde ne recevra pas miséricorde. »</p><p class="muted">Al-Bukhari et Muslim — traduction du sens.</p></div>
-<div class="card"><h3>La bonne parole</h3><p>« La bonne parole est une aumône. »</p><p class="muted">Al-Bukhari et Muslim — traduction du sens.</p></div>
-<div class="card"><h3>La patience</h3><p>« La patience est une lumière. »</p><p class="muted">Rapporté par Muslim — traduction du sens.</p></div>
-</div><p class="muted" style="margin-top:20px">Les traductions sont indicatives. Pour l’étude, consulte les recueils et leurs explications.</p></section>
-<section class="section" id="qibla"><div class="section-kicker">Orientation</div><h2 class="section-title">Direction de la Qibla</h2><div class="ornament">✧</div><p class="section-desc">Autorise la localisation de ton appareil pour estimer la direction de La Mecque.</p><div class="panel"><button class="btn" id="qiblaBtn">TROUVER LA QIBLA</button><div id="qiblaStatus" class="status" role="status"></div><div id="qiblaResult" class="hidden"><div class="compass"><span id="compassNeedle">🧭</span></div><div id="qiblaDegree" class="qibla-degree"></div><p id="qiblaDirection" class="muted"></p><p class="muted">Angle mesuré depuis le nord géographique, dans le sens horaire. La boussole du téléphone peut nécessiter un calibrage.</p></div></div></section>
-<section class="section" id="calendrier"><div class="section-kicker">Repères du temps</div><h2 class="section-title">Calendrier islamique</h2><div class="ornament">☾</div><div class="panel"><div style="font-size:42px">🌙</div><h3 id="hijriDate" class="section-title">Chargement…</h3><p id="gregorianDate" class="muted"></p><p class="muted">La date hégirienne peut varier selon l’observation locale du croissant lunaire.</p></div></section>
-<section class="section" id="favoris"><div class="section-kicker">Votre bibliothèque</div><h2 class="section-title">Mes sourates favorites</h2><div class="ornament">✧</div><p class="section-desc">Les sourates enregistrées sur cet appareil apparaîtront ici.</p><div id="favoriteList" class="cards"></div></section>
-<section class="section"><div class="section-kicker">Le rappel du jour</div><h2 class="section-title">Un instant pour se souvenir</h2><div class="ornament">۞</div><div class="panel"><p class="arabic">فَاذْكُرُونِي أَذْكُرْكُمْ</p><p class="daily-quote">« Souvenez-vous de Moi donc, Je Me souviendrai de vous. »</p><p class="muted">Coran, Al-Baqara (2:152), extrait.</p></div></section>
+
+<section class="section reveal" id="prieres"><div class="section-kicker">Organisation quotidienne</div><h2 class="section-title">Horaires de prière</h2><div class="ornament">✧</div><p class="section-desc">Entre ta ville ou utilise ta position pour consulter les horaires du jour.</p>
+<div class="panel">
+  <div class="row"><input id="city" class="field" placeholder="Ex. : Nancy, France" autocomplete="address-level2" aria-label="Ville"><button class="btn" id="prayerBtn" type="button">RECHERCHER</button><button class="btn btn-ghost" id="geoPrayerBtn" type="button">📍 MA POSITION</button></div>
+  <div class="row" style="margin-top:12px"><select id="method" class="field" aria-label="Méthode de calcul"><option value="12">UOIF (France)</option><option value="3">Ligue islamique mondiale</option><option value="2">ISNA (Amérique du Nord)</option><option value="5">Égypte</option><option value="4">Umm al-Qura (La Mecque)</option><option value="1">Karachi</option></select></div>
+  <div id="prayerStatus" class="status" role="status"></div><div id="nextPrayer" aria-live="polite"></div><div id="prayerTimes" class="prayer-grid"></div>
+  <p class="muted" style="font-size:12px">Les horaires dépendent de la méthode de calcul et des paramètres locaux. Vérifie-les auprès de ta mosquée.</p>
+  <div class="tracker"><h3>Mes prières du jour</h3><p class="muted" style="font-size:12px;margin:0">Coche chaque prière accomplie. Les données restent sur cet appareil.</p>
+    <div class="track-btns" id="trackBtns"></div><div id="streak" class="status"></div><div class="week" id="week" aria-label="Les 7 derniers jours"></div></div>
+</div></section>
+
+<section class="section reveal" id="tasbih"><div class="section-kicker">Un instant de rappel</div><h2 class="section-title">Compteur Tasbih</h2><div class="ornament">✧</div><p class="section-desc">Choisis un dhikr, touche le cercle et compte à ton rythme.</p>
+<div class="panel">
+  <div class="dhikr-pick" id="dhikrPick"></div>
+  <div class="dhikr-ar" id="dhikrAr"></div><div class="muted" id="dhikrFr"></div>
+  <div class="ring" id="ring"><button class="ring-btn" id="count" type="button" aria-label="Compter"><span><span id="countNum">0</span><small id="progressText">0 / 33</small></span></button></div>
+  <div class="row"><select id="goal" class="field" aria-label="Objectif du compteur"><option value="33">Objectif : 33</option><option value="99">Objectif : 99</option><option value="100">Objectif : 100</option><option value="500">Objectif : 500</option></select><label class="muted" style="font-size:12px"><input type="checkbox" id="vibrate" checked> Vibration</label></div>
+  <div class="counter-actions" style="margin-top:14px"><button class="btn" id="incrementBtn" type="button">＋ COMPTER</button><button class="btn btn-ghost" id="undoBtn" type="button">− RETIRER</button><button class="btn btn-ghost" id="resetBtn" type="button">RÉINITIALISER</button></div>
+  <p id="tasbihMessage" class="muted">Qu’Allah accepte tes invocations.</p>
+</div></section>
+
+<section class="section reveal" id="asma"><div class="section-kicker">Les plus beaux noms</div><h2 class="section-title">Les 99 noms d’Allah</h2><div class="ornament">۞</div><p class="section-desc">« À Allah appartiennent les plus beaux noms. » (Coran 7:180, sens)</p>
+<div class="row" style="margin-top:18px"><input id="asmaSearch" class="field" placeholder="Rechercher un nom…" aria-label="Rechercher un nom d’Allah"></div>
+<div class="asma-grid" id="asmaGrid"></div></section>
+
+<section class="section reveal" id="douas"><div class="section-kicker">Rappels du quotidien</div><h2 class="section-title">Invocations & Douas</h2><div class="ornament">۞</div><p class="section-desc">Des formules à retrouver au fil de la journée. Touche pour copier ou partager.</p>
+<div class="row" id="duaFilters" style="margin-top:20px"></div>
+<div class="cards" id="duaGrid"></div></section>
+
+<section class="section reveal" id="hadiths"><div class="section-kicker">Paroles & enseignements</div><h2 class="section-title">Hadiths & enseignements</h2><div class="ornament">✧</div>
+<div class="cards" id="hadithGrid"></div>
+<p class="muted" style="margin-top:20px;font-size:13px">Les traductions sont indicatives (traduction du sens). Pour l’étude, consulte les recueils et leurs explications.</p></section>
+
+<section class="section reveal" id="apprendre"><div class="section-kicker">Les bases</div><h2 class="section-title">Apprendre</h2><div class="ornament">✧</div><p class="section-desc">Les fondamentaux, expliqués simplement.</p>
+<div class="acc">
+<details open><summary>Les 5 piliers de l’Islam</summary><div class="body"><ol><li><b>La Shahada</b> : attester qu’il n’y a de divinité digne d’adoration qu’Allah et que Muhammad ﷺ est Son messager.</li><li><b>La Salat</b> : accomplir les cinq prières quotidiennes.</li><li><b>La Zakat</b> : s’acquitter de l’aumône obligatoire.</li><li><b>Le Sawm</b> : jeûner pendant le mois de Ramadan.</li><li><b>Le Hajj</b> : accomplir le pèlerinage à La Mecque, pour qui en a la capacité.</li></ol></div></details>
+<details><summary>Les 6 piliers de la foi</summary><div class="body"><ol><li>Croire en Allah</li><li>Croire en Ses anges</li><li>Croire en Ses livres</li><li>Croire en Ses messagers</li><li>Croire au Jour dernier</li><li>Croire au destin (al-qadar), bon et mauvais</li></ol></div></details>
+<details><summary>Les cinq prières et leurs rakaat</summary><div class="body"><p>Nombre de rakaat obligatoires :</p>
+<div class="rakaat"><div><b>2</b>Fajr</div><div><b>4</b>Dhuhr</div><div><b>4</b>Asr</div><div><b>3</b>Maghrib</div><div><b>4</b>Isha</div></div>
+<p style="margin-top:12px">Le vendredi, la prière de Joumou’a (2 rakaat, précédée du sermon) remplace le Dhuhr.</p></div></details>
+<details><summary>Les ablutions (wudu)</summary><div class="body"><ol><li>Formuler l’intention et dire « Bismillah ».</li><li>Laver les mains (3 fois).</li><li>Se rincer la bouche (3 fois).</li><li>Aspirer l’eau par le nez et la rejeter (3 fois).</li><li>Laver le visage (3 fois).</li><li>Laver les avant-bras jusqu’aux coudes, le droit puis le gauche (3 fois).</li><li>Passer les mains mouillées sur la tête, oreilles comprises (1 fois).</li><li>Laver les pieds jusqu’aux chevilles, le droit puis le gauche (3 fois).</li></ol></div></details>
+</div></section>
+
+<section class="section reveal" id="zakat"><div class="section-kicker">Purifier ses biens</div><h2 class="section-title">Calculateur de zakat</h2><div class="ornament">☾</div><p class="section-desc">Estime ta zakat al-mal (2,5 %). Les montants restent sur ton appareil.</p>
+<div class="panel"><div class="form-grid">
+  <label>Épargne et espèces (€)<input class="field" id="zCash" inputmode="decimal" placeholder="0"></label>
+  <label>Or et argent détenus (valeur en €)<input class="field" id="zGold" inputmode="decimal" placeholder="0"></label>
+  <label>Investissements, marchandises (€)<input class="field" id="zInvest" inputmode="decimal" placeholder="0"></label>
+  <label>Créances sûres, autres biens (€)<input class="field" id="zOther" inputmode="decimal" placeholder="0"></label>
+  <label>Dettes à rembourser (€)<input class="field" id="zDebt" inputmode="decimal" placeholder="0"></label>
+  <label>Prix actuel de l’or (€ / gramme)<input class="field" id="zGoldPrice" inputmode="decimal" placeholder="À renseigner"></label>
+</div>
+<div class="result" id="zResult" aria-live="polite">Renseigne tes montants et le prix de l’or au gramme.</div>
+<p class="muted" style="font-size:12px;margin-top:14px">Le nisab correspond à 85 g d’or (certains savants retiennent l’argent : 595 g). La zakat est due si ce seuil est atteint depuis une année lunaire complète. Outil indicatif : demande conseil à une personne de science.</p>
+</div></section>
+
+<section class="section reveal" id="qibla"><div class="section-kicker">Orientation</div><h2 class="section-title">Direction de la Qibla</h2><div class="ornament">✧</div><p class="section-desc">Autorise la localisation de ton appareil pour estimer la direction de La Mecque.</p>
+<div class="panel"><button class="btn" id="qiblaBtn" type="button">TROUVER LA QIBLA</button><div id="qiblaStatus" class="status" role="status"></div>
+<div id="qiblaResult" class="hidden">
+  <svg class="compass-svg" viewBox="0 0 200 200" role="img" aria-label="Boussole vers La Mecque">
+    <defs><radialGradient id="cg"><stop offset="0" stop-color="#203b2a"/><stop offset="1" stop-color="#0a1710"/></radialGradient></defs>
+    <circle cx="100" cy="100" r="96" fill="url(#cg)" stroke="#d8bd7b" stroke-opacity=".55"/>
+    <g id="dial">
+      <circle cx="100" cy="100" r="84" fill="none" stroke="#d8bd7b" stroke-opacity=".4" stroke-dasharray="2 12.3"/>
+      <text x="100" y="32" text-anchor="middle">N</text><text x="176" y="105" text-anchor="middle">E</text><text x="100" y="180" text-anchor="middle">S</text><text x="24" y="105" text-anchor="middle">O</text>
+      <g id="needle">
+        <rect x="93" y="12" width="14" height="14" rx="2" fill="#111" stroke="#f0dda9"/>
+        <path d="M100 30 L109 100 L100 92 L91 100Z" fill="#f0dda9"/><path d="M100 170 L109 100 L100 108 L91 100Z" fill="#4a6a55"/>
+        <circle cx="100" cy="100" r="5" fill="#d8bd7b"/>
+      </g>
+    </g>
+  </svg>
+  <div id="qiblaDegree" class="qibla-degree"></div><p id="qiblaDirection" class="muted"></p><p id="qiblaDistance" class="muted"></p>
+  <button class="btn btn-ghost btn-small" id="compassBtn" type="button">ACTIVER LA BOUSSOLE DE L’APPAREIL</button>
+  <p class="muted" style="font-size:12px">Angle mesuré depuis le nord géographique, dans le sens horaire. Sur téléphone, active la boussole et calibre-la en dessinant un « 8 ». Le carré noir indique la Kaaba.</p>
+</div></div></section>
+
+<section class="section reveal" id="calendrier"><div class="section-kicker">Repères du temps</div><h2 class="section-title">Calendrier islamique</h2><div class="ornament">☾</div>
+<div class="panel"><div style="font-size:42px">🌙</div><h3 id="hijriDate" class="section-title">Chargement…</h3><p id="gregorianDate" class="muted"></p><p class="muted" style="font-size:12px">La date hégirienne peut varier d’un jour selon l’observation locale du croissant lunaire.</p></div>
+<div class="events" id="events"></div></section>
+
+<section class="section reveal" id="quiz"><div class="section-kicker">Teste tes connaissances</div><h2 class="section-title">Quiz islamique</h2><div class="ornament">✧</div>
+<div class="panel"><div id="quizBox"></div></div></section>
+
+<section class="section reveal" id="favoris"><div class="section-kicker">Votre bibliothèque</div><h2 class="section-title">Mes sourates favorites</h2><div class="ornament">✧</div><p class="section-desc">Les sourates enregistrées sur cet appareil apparaissent ici.</p><div id="favoriteList" class="cards"></div></section>
+
+<section class="section reveal"><div class="section-kicker">Le rappel du jour</div><h2 class="section-title">Un instant pour se souvenir</h2><div class="ornament">۞</div><div class="panel"><p class="arabic" style="text-align:center">فَاذْكُرُونِي أَذْكُرْكُمْ</p><p style="font:25px/1.7 'Playfair Display',serif;color:var(--gold2)">« Souvenez-vous de Moi donc, Je Me souviendrai de vous. »</p><p class="muted">Coran, Al-Baqara (2:152), extrait.</p></div></section>
 </main>
-<footer><div class="brand"><span class="brand-mark">۞</span><span><span class="brand-name">KIMAX ISLAM</span><br><span class="brand-sub">UN ESPACE POUR LA FOI</span></span></div><p>La foi au cœur de ton quotidien.</p><p>Créé avec soin par <strong>KIMAX & YOUNES</strong></p><small>© <span id="year"></span> KIMAX ISLAM — Tous droits réservés.</small><p>Qu’Allah nous guide et accepte nos œuvres. آمين</p></footer>
+
+<footer>
+  <div class="brand"><span class="brand-mark">۞</span><span><span class="brand-name">KIMAX ISLAM</span><br><span class="brand-sub">UN ESPACE POUR LA FOI</span></span></div>
+  <div class="foot-links" id="footLinks"></div>
+  <p>La foi au cœur de ton quotidien.</p>
+  <p><a data-don href="https://www.secours-islamique.org" target="_blank" rel="noopener noreferrer" style="color:var(--gold2)">🇵🇸 Faire un don pour la Palestine</a></p>
+  <p>Créé avec soin par <strong>KIMAX & YOUNES</strong></p>
+  <small>© <span id="year"></span> KIMAX ISLAM — Tous droits réservés.</small>
+  <p>Qu’Allah nous guide et accepte nos œuvres. آمين</p>
+</footer>
+<button id="toTop" type="button" aria-label="Remonter en haut">↑</button>
 <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
 <script>
 "use strict";
+/* ===== Réglages ===== */
 const API="https://api.alquran.cloud/v1/";
+const DON_URL="https://www.secours-islamique.org"; // ← mets ici la page de don de ton choix
 const $=id=>document.getElementById(id);
-const safeRead=(key,fallback)=>{try{const v=JSON.parse(localStorage.getItem(key));return v??fallback}catch{return fallback}};
-let count=Math.max(0,Number(localStorage.getItem("kimaxTasbih"))||0);
-let favorites=safeRead("kimaxFavorites",[]);
-let surahCache=[];
-let prayerTimer=null;
-function toast(message){const el=$("toast");el.textContent=message;el.classList.add("show");clearTimeout(window.toastTimer);window.toastTimer=setTimeout(()=>el.classList.remove("show"),2400)}
-function save(key,value){try{localStorage.setItem(key,JSON.stringify(value))}catch{toast("Stockage indisponible sur cet appareil.")}}
-function updateCount(){ $("count").textContent=count;try{localStorage.setItem("kimaxTasbih",String(count))}catch{} updateProgress()}
-function updateProgress(){const goal=Number($("goal").value);$("progressBar").style.width=Math.min(100,count/goal*100)+"%";$("progressText").textContent=count+" / "+goal}
-function increment(){count++;updateCount();$("tasbihMessage").textContent=count%33===0?"MashaAllah ! 33 répétitions.":"Qu’Allah accepte tes invocations.";if(count%33===0)toast("MashaAllah ! 🌙")}
-function resetCount(){count=0;updateCount();$("tasbihMessage").textContent="Compteur réinitialisé."}
-async function initQuran(){const select=$("surahSelect");try{const r=await fetch(API+"surah");if(!r.ok)throw Error();const j=await r.json();if(j.code!==200)throw Error();surahCache=j.data;select.replaceChildren();j.data.forEach(s=>{const o=document.createElement("option");o.value=s.number;o.textContent=`${s.number}. ${s.englishName} — ${s.name}`;select.appendChild(o)});await loadSurah();$("surahSearch").addEventListener("input",filterSurahs)}catch{$("quranStatus").textContent="Impossible de charger les sourates. Vérifie ta connexion puis réessaie."}}
-function filterSurahs(){const q=$("surahSearch").value.trim().toLocaleLowerCase("fr");const select=$("surahSelect");const current=select.value;select.replaceChildren();const matches=surahCache.filter(s=>`${s.number} ${s.name} ${s.englishName} ${s.englishNameTranslation}`.toLocaleLowerCase("fr").includes(q));matches.forEach(s=>{const o=document.createElement("option");o.value=s.number;o.textContent=`${s.number}. ${s.englishName} — ${s.name}`;select.append(o)});if(matches.some(s=>String(s.number)===current))select.value=current;if(!matches.length){const o=document.createElement("option");o.textContent="Aucune sourate trouvée";o.value="";select.append(o)}}
-async function loadSurah(){const number=$("surahSelect").value;if(!number)return;$("quranStatus").textContent="Chargement de la sourate…";$("verses").replaceChildren();$("surahInfo").replaceChildren();try{const r=await fetch(API+`surah/${number}/editions/quran-uthmani,fr.hamidullah`);if(!r.ok)throw Error();const j=await r.json();if(j.code!==200)throw Error();const ar=j.data[0],fr=j.data[1];$("quranStatus").textContent="";const info=document.createElement("div");info.className="card";const h=document.createElement("h3");h.textContent=ar.name;info.append(h);const p=document.createElement("p");p.textContent=`${ar.englishName} — ${ar.englishNameTranslation}`;info.append(p);const meta=document.createElement("p");meta.className="muted";meta.textContent=`${ar.numberOfAyahs} versets · ${ar.revelationType==="Meccan"?"Mecquoise":"Médinoise"}`;info.append(meta);const fav=document.createElement("button");fav.className="favorite-btn";fav.textContent=favorites.some(f=>f.number===ar.number)?"★ Enregistrée":"☆ Ajouter aux favoris";fav.addEventListener("click",()=>toggleFavorite(ar.number,ar.name));info.append(fav);$("surahInfo").append(info);const container=$("verses");ar.ayahs.forEach((ayah,i)=>{const article=document.createElement("article");article.className="verse";const arabic=document.createElement("div");arabic.className="arabic";arabic.textContent=ayah.text;const translation=document.createElement("p");translation.className="translation";translation.textContent=`${i+1}. ${fr.ayahs[i]?.text||""}`;const tools=document.createElement("div");tools.className="verse-tools";const copy=document.createElement("button");copy.className="verse-tool";copy.type="button";copy.textContent="Copier le verset";copy.addEventListener("click",async()=>{const text=`${ayah.text}\n${fr.ayahs[i]?.text||""}\n— ${ar.englishName} (${ar.number}:${i+1})`;try{await navigator.clipboard.writeText(text);toast("Verset copié")}catch{toast("Copie non disponible sur ce navigateur")}});tools.append(copy);article.append(arabic,translation,tools);container.append(article)});}catch{$("quranStatus").textContent="La sourate n’a pas pu être chargée. Réessaie dans un instant."}}
-function toggleFavorite(number,name){const exists=favorites.some(f=>f.number===number);favorites=exists?favorites.filter(f=>f.number!==number):[...favorites,{number,name}];save("kimaxFavorites",favorites);renderFavorites();const btn=$("surahInfo").querySelector("button");if(btn)btn.textContent=exists?"☆ Ajouter aux favoris":"★ Enregistrée";toast(exists?"Retirée des favoris":"Ajoutée aux favoris")}
-function renderFavorites(){const root=$("favoriteList");root.replaceChildren();if(!favorites.length){const p=document.createElement("p");p.className="empty";p.textContent="Aucune sourate enregistrée pour le moment.";root.append(p);return}favorites.forEach(f=>{const card=document.createElement("div");card.className="card";const title=document.createElement("h3");title.textContent=f.name||`Sourate ${f.number}`;const p=document.createElement("p");p.className="muted";p.textContent=`Sourate n° ${f.number}`;const open=document.createElement("button");open.className="btn btn-small";open.textContent="OUVRIR";open.addEventListener("click",()=>{ $("surahSelect").value=String(f.number);loadSurah();$("coran").scrollIntoView({behavior:"smooth"})});card.append(title,p,open);root.append(card)})}
-async function getPrayers(){const city=$("city").value.trim();if(!city){$("prayerStatus").textContent="Entre le nom d’une ville.";return}$("prayerStatus").textContent="Recherche des horaires…";$("prayerTimes").replaceChildren();try{const r=await fetch(`https://api.aladhan.com/v1/timingsByCity?city=${encodeURIComponent(city)}&country=&method=3`);if(!r.ok)throw Error();const j=await r.json();if(j.code!==200)throw Error();const times=j.data.timings;const names=[["Fajr","Fajr"],["Sunrise","Lever du soleil"],["Dhuhr","Dhuhr"],["Asr","Asr"],["Maghrib","Maghrib"],["Isha","Isha"]];names.forEach(([key,label])=>{const box=document.createElement("div");box.className="prayer";const strong=document.createElement("strong");strong.textContent=label;const span=document.createElement("span");span.textContent=times[key]||"—";box.append(strong,span);$("prayerTimes").append(box)});showNextPrayer(times);$("prayerStatus").textContent=`Horaires pour ${j.data.meta.timezone||city} · ${j.data.date.readable}`}catch{$("prayerStatus").textContent="Impossible de récupérer les horaires. Vérifie le nom de la ville et ta connexion."}}
+const store={get(k,f){try{const v=JSON.parse(localStorage.getItem(k));return v??f}catch{return f}},set(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch{}}};
+const el=(tag,cls,text)=>{const e=document.createElement(tag);if(cls)e.className=cls;if(text!==undefined)e.textContent=text;return e};
+const pad=n=>String(n).padStart(2,"0");
+const todayKey=(d=new Date())=>`${d.getFullYear()}-${pad(d.getMonth()+1)}-${pad(d.getDate())}`;
+const dayOfYear=(d=new Date())=>Math.floor((d-new Date(d.getFullYear(),0,0))/864e5);
+const reduceMotion=matchMedia("(prefers-reduced-motion: reduce)").matches;
+document.querySelectorAll("[data-don]").forEach(a=>a.href=DON_URL);
+function toast(m){const t=$("toast");t.textContent=m;t.classList.add("show");clearTimeout(window.toastTimer);window.toastTimer=setTimeout(()=>t.classList.remove("show"),2400)}
+async function copyText(text,msg){try{await navigator.clipboard.writeText(text);toast(msg||"Copié")}catch{toast("Copie non disponible sur ce navigateur")}}
+async function shareText(text){if(navigator.share){try{await navigator.share({text});return}catch{return}}copyText(text,"Copié, prêt à partager")}
+
+/* ===== Navigation, menu, thème ===== */
+const SECTIONS=[
+["coran","📖","Le Saint Coran","Lecture, traduction et audio."],
+["prieres","🕌","Horaires de prière","Selon ta ville + suivi quotidien."],
+["tasbih","📿","Tasbih","Un compteur pour tes adhkar."],
+["asma","✨","99 noms d’Allah","Découvre leur sens."],
+["douas","🤲","Invocations","Douas par moment de la journée."],
+["hadiths","📜","Hadiths","Paroles du Prophète ﷺ."],
+["apprendre","🎓","Apprendre","Piliers, ablutions, prières."],
+["zakat","💰","Zakat","Calculateur indicatif."],
+["qibla","🧭","Qibla","Direction de La Mecque."],
+["calendrier","🌙","Calendrier","Date hégirienne et fêtes."],
+["quiz","🏆","Quiz","Teste tes connaissances."],
+["favoris","⭐","Favoris","Tes sourates enregistrées."]];
+const tiles=$("tiles"),menuGrid=$("menuGrid"),footLinks=$("footLinks");
+SECTIONS.forEach(([id,icon,title,desc])=>{
+  const a=el("a","card feature-card");a.href="#"+id;
+  a.append(el("div","card-icon",icon),el("h3","",title),el("p","muted",desc));tiles.append(a);
+  const m=a.cloneNode(true);m.addEventListener("click",closeMenu);menuGrid.append(m);
+  const f=el("a","",title);f.href="#"+id;footLinks.append(f);
+});
+function openMenu(){$("menu").classList.remove("hidden");$("menuBtn").setAttribute("aria-expanded","true");document.body.style.overflow="hidden";$("menuClose").focus()}
+function closeMenu(){$("menu").classList.add("hidden");$("menuBtn").setAttribute("aria-expanded","false");document.body.style.overflow=""}
+$("menuBtn").addEventListener("click",openMenu);$("menuClose").addEventListener("click",closeMenu);
+document.addEventListener("keydown",e=>{if(e.key==="Escape")closeMenu()});
+function initTheme(){
+  let saved=null;try{saved=localStorage.getItem("kimaxTheme")}catch{}
+  if(saved==="light")document.body.classList.add("theme-light");
+  const btn=$("themeBtn");const sync=()=>btn.textContent=document.body.classList.contains("theme-light")?"☾":"☼";sync();
+  btn.addEventListener("click",()=>{document.body.classList.toggle("theme-light");const light=document.body.classList.contains("theme-light");try{localStorage.setItem("kimaxTheme",light?"light":"dark")}catch{}sync();toast(light?"Thème clair activé":"Thème nuit activé")});
+}
+window.addEventListener("scroll",()=>{
+  const h=document.documentElement,max=h.scrollHeight-h.clientHeight;
+  $("progress").style.width=(max>0?h.scrollTop/max*100:0)+"%";
+  $("toTop").classList.toggle("show",h.scrollTop>700);
+},{passive:true});
+$("toTop").addEventListener("click",()=>window.scrollTo({top:0,behavior:reduceMotion?"auto":"smooth"}));
+/* apparition + section active */
+if("IntersectionObserver" in window){
+  const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target)}}),{threshold:.08});
+  document.querySelectorAll(".reveal").forEach(n=>io.observe(n));
+  const links=[...document.querySelectorAll("#mainNav a")];
+  const spy=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){links.forEach(l=>l.removeAttribute("aria-current"));const l=links.find(a=>a.getAttribute("href")==="#"+e.target.id);if(l)l.setAttribute("aria-current","true")}}),{rootMargin:"-45% 0px -50% 0px"});
+  links.forEach(l=>{const s=document.querySelector(l.getAttribute("href"));if(s)spy.observe(s)});
+}else document.querySelectorAll(".reveal").forEach(n=>n.classList.add("in"));
+
+/* étoiles du hero */
+(function(){
+  const c=$("stars");if(!c||reduceMotion)return;const ctx=c.getContext("2d");let w,h,stars=[],visible=true;
+  function size(){const r=c.getBoundingClientRect();w=c.width=r.width;h=c.height=r.height;stars=Array.from({length:Math.round(w*h/9000)},()=>({x:Math.random()*w,y:Math.random()*h,r:Math.random()*1.4+.3,p:Math.random()*6.28,s:Math.random()*.02+.005}))}
+  function draw(){if(visible){ctx.clearRect(0,0,w,h);for(const s of stars){s.p+=s.s;ctx.globalAlpha=.25+.6*Math.abs(Math.sin(s.p));ctx.fillStyle="#f0dda9";ctx.beginPath();ctx.arc(s.x,s.y,s.r,0,6.283);ctx.fill()}}requestAnimationFrame(draw)}
+  size();addEventListener("resize",size);
+  if("IntersectionObserver" in window)new IntersectionObserver(e=>visible=e[0].isIntersecting).observe(c);
+  draw();
+})();
+
+/* ===== Dates hégiriennes ===== */
+const HIJRI_MONTHS=["Mouharram","Safar","Rabi’ al-awwal","Rabi’ ath-thani","Joumada al-oula","Joumada ath-thania","Rajab","Chaabane","Ramadan","Chawwal","Dhou al-qi’da","Dhou al-hijja"];
+let hijriFmt=null;
+for(const cal of ["islamic-umalqura","islamic-civil","islamic"]){
+  try{const f=new Intl.DateTimeFormat("en-u-ca-"+cal,{day:"numeric",month:"numeric",year:"numeric"});const t=f.formatToParts(new Date()).find(p=>p.type==="month");if(t&&Number(t.value)>=1&&Number(t.value)<=12){hijriFmt=f;break}}catch{}
+}
+function hijriOf(date){
+  if(!hijriFmt)return null;const o={};
+  hijriFmt.formatToParts(date).forEach(p=>{if(p.type==="day"||p.type==="month"||p.type==="year")o[p.type]=parseInt(p.value,10)});
+  return o.day&&o.month?o:null;
+}
+function noonOf(d){return new Date(d.getFullYear(),d.getMonth(),d.getDate(),12)}
+function daysUntilHijri(m,d){
+  const base=noonOf(new Date());
+  for(let i=0;i<=400;i++){const dt=new Date(base.getTime()+i*864e5);const h=hijriOf(dt);if(h&&h.month===m&&h.day===d)return{days:i,date:dt}}
+  return null;
+}
+function hijriLabel(h){return `${h.day} ${HIJRI_MONTHS[h.month-1]} ${h.year} H`}
+const EVENTS=[
+ {m:1,d:1,icon:"🌙",name:"Nouvel An hégirien",note:"1er Mouharram"},
+ {m:1,d:10,icon:"🤲",name:"Achoura",note:"10 Mouharram · jeûne recommandé"},
+ {m:9,d:1,icon:"🌟",name:"Début du Ramadan",note:"1er Ramadan"},
+ {m:9,d:27,icon:"✨",name:"Nuit du Destin (27 Ramadan)",note:"À rechercher dans les dix dernières nuits"},
+ {m:10,d:1,icon:"🎉",name:"Aïd al-Fitr",note:"1er Chawwal"},
+ {m:12,d:9,icon:"⛰️",name:"Jour d’Arafat",note:"9 Dhou al-hijja · jeûne recommandé"},
+ {m:12,d:10,icon:"🐑",name:"Aïd al-Adha",note:"10 Dhou al-hijja"}];
+function whenText(n){return n===0?"Aujourd’hui":n===1?"Demain":`Dans ${n} jours`}
+function initDates(){
+  const now=new Date();$("year").textContent=now.getFullYear();
+  $("gregorianDate").textContent=new Intl.DateTimeFormat("fr-FR",{dateStyle:"full"}).format(now);
+  $("quickDate").textContent=new Intl.DateTimeFormat("fr-FR",{day:"numeric",month:"short"}).format(now);
+  const h=hijriOf(now),ev=$("events");
+  if(!h){$("hijriDate").textContent="Calendrier hégirien non disponible sur ce navigateur.";$("quickHijri").textContent="—";$("quickRamadan").textContent="—";return}
+  $("hijriDate").textContent=hijriLabel(h);$("quickHijri").textContent=`${h.day} ${HIJRI_MONTHS[h.month-1]}`;
+  if(h.month===9)$("quickRamadan").textContent="En cours 🌙";
+  else{const r=daysUntilHijri(9,1);$("quickRamadan").textContent=r?`${r.days} jours`:"—"}
+  const list=EVENTS.map(e=>({...e,...(daysUntilHijri(e.m,e.d)||{days:9999})})).filter(e=>e.days<9999);
+  const fri=(5-now.getDay()+7)%7;list.push({icon:"🕌",name:"Vendredi (Joumou’a)",note:"Prière du vendredi",days:fri,date:new Date(noonOf(now).getTime()+fri*864e5)});
+  list.sort((a,b)=>a.days-b.days).forEach(e=>{
+    const c=el("div","card event"+(e.days<=7?" soon":""));
+    c.append(el("div","card-icon",e.icon),el("h3","",e.name),el("b","",whenText(e.days)),
+      el("p","muted",new Intl.DateTimeFormat("fr-FR",{dateStyle:"full"}).format(e.date)),el("p","muted",e.note));
+    ev.append(c);
+  });
+  ev.append(Object.assign(el("p","muted","Dates estimées (±1 jour selon l’observation du croissant)."),{style:"grid-column:1/-1;text-align:center;font-size:12px"}));
+}
+
+/* ===== Coran ===== */
+let surahCache=[],favorites=store.get("kimaxFavorites",[]);
+const player=new Audio();let audioUrls=[],playIdx=-1,playAll=false,currentSurah=null;
+function fillSurahSelect(list,keep){
+  const select=$("surahSelect");select.replaceChildren();
+  list.forEach(s=>{const o=document.createElement("option");o.value=s.number;o.textContent=`${s.number}. ${s.englishName} — ${s.name}`;select.append(o)});
+  if(!list.length){const o=document.createElement("option");o.value="";o.textContent="Aucune sourate trouvée";select.append(o)}
+  else if(keep&&list.some(s=>String(s.number)===keep))select.value=keep;
+}
+async function initQuran(){
+  try{
+    const r=await fetch(API+"surah");if(!r.ok)throw Error();const j=await r.json();if(j.code!==200)throw Error();
+    surahCache=j.data;fillSurahSelect(surahCache);
+    const last=store.get("kimaxLastRead",null);if(last){$("resumeBtn").hidden=false;$("resumeBtn").textContent=`↩ Reprendre : ${last.englishName||last.name} ${last.ayah?"· verset "+last.ayah:""}`}
+    await loadSurah();
+    $("surahSearch").addEventListener("input",filterSurahs);
+  }catch{$("quranStatus").textContent="Impossible de charger les sourates. Vérifie ta connexion puis réessaie."}
+}
+function filterSurahs(){
+  const q=$("surahSearch").value.trim().toLocaleLowerCase("fr"),cur=$("surahSelect").value;
+  fillSurahSelect(surahCache.filter(s=>`${s.number} ${s.name} ${s.englishName} ${s.englishNameTranslation}`.toLocaleLowerCase("fr").includes(q)),cur);
+}
+function stopAudio(){player.pause();playAll=false;playIdx=-1;document.querySelectorAll(".verse.playing").forEach(v=>v.classList.remove("playing"));const b=$("playAllBtn");if(b)b.textContent="▶ Écouter la sourate"}
+function playVerse(i,all){
+  if(!audioUrls[i]){toast("Audio indisponible pour ce verset");return}
+  document.querySelectorAll(".verse.playing").forEach(v=>v.classList.remove("playing"));
+  playIdx=i;playAll=all;player.src=audioUrls[i];
+  const v=$("verse-"+i);if(v){v.classList.add("playing");if(all)v.scrollIntoView({behavior:reduceMotion?"auto":"smooth",block:"center"})}
+  const b=$("playAllBtn");if(b&&all)b.textContent="⏸ Pause";
+  player.play().catch(()=>toast("Lecture audio impossible"));
+}
+player.addEventListener("ended",()=>{if(playAll&&playIdx+1<audioUrls.length)playVerse(playIdx+1,true);else stopAudio()});
+async function loadSurah(number){
+  number=number||$("surahSelect").value;if(!number)return;
+  stopAudio();$("surahSelect").value=String(number);
+  $("quranStatus").textContent="Chargement de la sourate…";$("verses").replaceChildren();$("surahInfo").replaceChildren();
+  try{
+    const r=await fetch(API+`surah/${number}/editions/quran-uthmani,fr.hamidullah,ar.alafasy`);if(!r.ok)throw Error();
+    const j=await r.json();if(j.code!==200)throw Error();
+    const ar=j.data[0],fr=j.data[1],au=j.data[2];currentSurah=ar;
+    audioUrls=ar.ayahs.map((_,i)=>au&&au.ayahs[i]&&au.ayahs[i].audio||"");
+    $("quranStatus").textContent="";
+    const info=el("div","card surah-head");
+    info.append(el("div","arabic",ar.name),el("h3","",`${ar.number}. ${ar.englishName}`),el("p","",ar.englishNameTranslation),
+      el("p","muted",`${ar.numberOfAyahs} versets · ${ar.revelationType==="Meccan"?"Mecquoise":"Médinoise"}`));
+    const acts=el("div","surah-actions");
+    const play=el("button","favorite-btn","▶ Écouter la sourate");play.id="playAllBtn";play.type="button";
+    play.addEventListener("click",()=>{if(playAll&&!player.paused){player.pause();play.textContent="▶ Reprendre";return}if(playAll&&player.paused&&playIdx>=0){player.play();play.textContent="⏸ Pause";return}playVerse(0,true)});
+    const fav=el("button","favorite-btn",favorites.some(f=>f.number===ar.number)?"★ Enregistrée":"☆ Ajouter aux favoris");fav.type="button";fav.id="favBtn";
+    fav.addEventListener("click",()=>toggleFavorite(ar.number,ar.name));
+    acts.append(play,fav);info.append(acts);$("surahInfo").append(info);
+    const container=$("verses");
+    ar.ayahs.forEach((ayah,i)=>{
+      const art=el("article","verse");art.id="verse-"+i;
+      art.append(el("div","arabic",ayah.text),el("p","translation",`${i+1}. ${fr.ayahs[i]?.text||""}`));
+      const tools=el("div","verse-tools");
+      const mk=(label,fn)=>{const b=el("button","verse-tool",label);b.type="button";b.addEventListener("click",fn);tools.append(b)};
+      mk("▶ Écouter",()=>playVerse(i,false));
+      mk("Copier",()=>copyText(`${ayah.text}\n${fr.ayahs[i]?.text||""}\n— ${ar.englishName} (${ar.number}:${i+1})`,"Verset copié"));
+      mk("Partager",()=>shareText(`${ayah.text}\n${fr.ayahs[i]?.text||""}\n— ${ar.englishName} (${ar.number}:${i+1})`));
+      mk("🔖 Marquer",()=>{store.set("kimaxLastRead",{number:ar.number,name:ar.name,englishName:ar.englishName,ayah:i+1});$("resumeBtn").hidden=false;$("resumeBtn").textContent=`↩ Reprendre : ${ar.englishName} · verset ${i+1}`;toast("Lecture marquée")});
+      art.append(tools);container.append(art);
+    });
+  }catch{$("quranStatus").textContent="La sourate n’a pas pu être chargée. Réessaie dans un instant."}
+}
+function toggleFavorite(number,name){
+  const exists=favorites.some(f=>f.number===number);
+  favorites=exists?favorites.filter(f=>f.number!==number):[...favorites,{number,name}];
+  store.set("kimaxFavorites",favorites);renderFavorites();
+  const b=$("favBtn");if(b)b.textContent=exists?"☆ Ajouter aux favoris":"★ Enregistrée";
+  toast(exists?"Retirée des favoris":"Ajoutée aux favoris");
+}
+function renderFavorites(){
+  const root=$("favoriteList");root.replaceChildren();
+  if(!favorites.length){root.append(el("p","empty","Aucune sourate enregistrée pour le moment."));return}
+  favorites.forEach(f=>{
+    const card=el("div","card");card.append(el("h3","",f.name||`Sourate ${f.number}`),el("p","muted",`Sourate n° ${f.number}`));
+    const open=el("button","btn btn-small","OUVRIR");open.type="button";
+    open.addEventListener("click",()=>{loadSurah(f.number);$("coran").scrollIntoView({behavior:"smooth"})});
+    card.append(open);root.append(card);
+  });
+}
+$("loadSurahBtn").addEventListener("click",()=>loadSurah());
+$("surahSelect").addEventListener("change",()=>loadSurah());
+$("arSize").addEventListener("input",e=>{document.documentElement.style.setProperty("--ar-size",e.target.value+"px");store.set("kimaxArSize",e.target.value)});
+(function(){const s=store.get("kimaxArSize",null);if(s){$("arSize").value=s;document.documentElement.style.setProperty("--ar-size",s+"px")}})();
+$("showTr").addEventListener("change",e=>{$("verses").classList.toggle("hide-tr",!e.target.checked)});
+$("resumeBtn").addEventListener("click",async()=>{const l=store.get("kimaxLastRead",null);if(!l)return;await loadSurah(l.number);const v=$("verse-"+((l.ayah||1)-1));if(v)v.scrollIntoView({behavior:"smooth",block:"center"})});
+
+/* ===== Prières ===== */
+const PRAYERS=[["Fajr","Fajr"],["Dhuhr","Dhuhr"],["Asr","Asr"],["Maghrib","Maghrib"],["Isha","Isha"]];
+let prayerState=null,prayerTimer=null;
+function tzNowSeconds(tz){
+  try{const p=new Intl.DateTimeFormat("en-GB",{timeZone:tz,hour:"2-digit",minute:"2-digit",second:"2-digit",hour12:false}).formatToParts(new Date());const g=t=>parseInt(p.find(x=>x.type===t).value,10);return(g("hour")%24)*3600+g("minute")*60+g("second")}
+  catch{const n=new Date();return n.getHours()*3600+n.getMinutes()*60+n.getSeconds()}
+}
+function secOf(raw){const [h,m]=String(raw||"").split(" ")[0].split(":").map(Number);return Number.isFinite(h)&&Number.isFinite(m)?h*3600+m*60:null}
+function updateNext(){
+  if(!prayerState)return;const{times,tz}=prayerState,now=tzNowSeconds(tz);
+  let next=null;
+  for(const[k,l]of PRAYERS){const s=secOf(times[k]);if(s!==null&&s>now){next={k,l,diff:s-now};break}}
+  if(!next){const s=secOf(times.Fajr);if(s===null)return;next={k:"Fajr",l:"Fajr (demain)",diff:86400-now+s}}
+  const hh=Math.floor(next.diff/3600),mm=Math.floor(next.diff%3600/60),ss=next.diff%60;
+  $("nextPrayer").textContent=`Prochaine prière : ${next.l} · dans ${hh} h ${pad(mm)} min ${pad(ss)} s`;
+  $("quickPrayer").textContent=`${next.l.replace(" (demain)","")} · ${hh} h ${pad(mm)}`;
+  document.querySelectorAll(".prayer").forEach(b=>b.classList.toggle("prayer-highlight",b.dataset.key===next.k));
+}
+async function loadTimings(url,place,silent){
+  if(!silent)$("prayerStatus").textContent="Recherche des horaires…";
+  try{
+    const r=await fetch(url);if(!r.ok)throw Error();const j=await r.json();if(j.code!==200)throw Error();
+    const times=j.data.timings,tz=j.data.meta.timezone;
+    $("prayerTimes").replaceChildren();
+    [["Fajr","Fajr"],["Sunrise","Lever du soleil"],["Dhuhr","Dhuhr"],["Asr","Asr"],["Maghrib","Maghrib"],["Isha","Isha"]].forEach(([k,l])=>{
+      const box=el("div","prayer");box.dataset.key=k;box.append(el("strong","",l),el("span","",(times[k]||"—").split(" ")[0]));$("prayerTimes").append(box)});
+    prayerState={times,tz};clearInterval(prayerTimer);updateNext();prayerTimer=setInterval(updateNext,1000);
+    $("prayerStatus").textContent=`Horaires pour ${place} · ${j.data.date.readable}`;
+    return true;
+  }catch{$("prayerStatus").textContent="Impossible de récupérer les horaires. Vérifie le nom de la ville et ta connexion.";return false}
+}
+function methodVal(){return $("method").value}
+async function getPrayers(){
+  const city=$("city").value.trim();if(!city){$("prayerStatus").textContent="Entre le nom d’une ville.";return}
+  const ok=await loadTimings(`https://api.aladhan.com/v1/timingsByAddress?address=${encodeURIComponent(city)}&method=${methodVal()}`,city);
+  if(ok)store.set("kimaxPrayerSrc",{type:"city",value:city,method:methodVal()});
+}
+function getPrayersGeo(){
+  if(!navigator.geolocation){$("prayerStatus").textContent="La géolocalisation n’est pas disponible sur cet appareil.";return}
+  $("prayerStatus").textContent="Localisation en cours…";
+  navigator.geolocation.getCurrentPosition(async pos=>{
+    const{latitude:lat,longitude:lon}=pos.coords;
+    const ok=await loadTimings(`https://api.aladhan.com/v1/timings?latitude=${lat}&longitude=${lon}&method=${methodVal()}`,"ta position");
+    if(ok)store.set("kimaxPrayerSrc",{type:"geo",lat,lon,method:methodVal()});
+  },err=>{$("prayerStatus").textContent=err.code===1?"Autorisation refusée. Entre plutôt le nom de ta ville.":"Position introuvable. Réessaie ou entre ta ville."},{timeout:12000,maximumAge:300000});
+}
+function initPrayers(){
+  const s=store.get("kimaxPrayerSrc",null);
+  if(s){$("method").value=s.method||"12";
+    if(s.type==="city"){$("city").value=s.value;loadTimings(`https://api.aladhan.com/v1/timingsByAddress?address=${encodeURIComponent(s.value)}&method=${$("method").value}`,s.value,true)}
+    else if(s.type==="geo")loadTimings(`https://api.aladhan.com/v1/timings?latitude=${s.lat}&longitude=${s.lon}&method=${$("method").value}`,"ta position",true)}
+  $("prayerBtn").addEventListener("click",getPrayers);$("geoPrayerBtn").addEventListener("click",getPrayersGeo);
+  $("city").addEventListener("keydown",e=>{if(e.key==="Enter")getPrayers()});
+  $("method").addEventListener("change",()=>{const src=store.get("kimaxPrayerSrc",null);if(src||$("city").value.trim()){src&&src.type==="geo"?getPrayersGeo():getPrayers()}});
+}
+/* suivi des prières */
+function renderTracker(){
+  const log=store.get("kimaxPrayerLog",{}),key=todayKey(),today=log[key]||[0,0,0,0,0];
+  const box=$("trackBtns");box.replaceChildren();
+  PRAYERS.forEach(([,label],i)=>{
+    const b=el("button","track-btn"+(today[i]?" done":""),(today[i]?"✓ ":"")+label);b.type="button";b.setAttribute("aria-pressed",today[i]?"true":"false");
+    b.addEventListener("click",()=>{const l=store.get("kimaxPrayerLog",{});const t=l[key]||[0,0,0,0,0];t[i]=t[i]?0:1;l[key]=t;
+      const keys=Object.keys(l).sort().slice(-60);const trimmed={};keys.forEach(k=>trimmed[k]=l[k]);store.set("kimaxPrayerLog",trimmed);
+      renderTracker();if(t.every(Boolean))toast("MashaAllah ! 5 prières sur 5 🌙")});
+    box.append(b);
+  });
+  let streak=0;const d=new Date();
+  const full=dt=>{const t=log[todayKey(dt)];return t&&t.every(Boolean)};
+  if(!full(d))d.setDate(d.getDate()-1);
+  while(full(d)){streak++;d.setDate(d.getDate()-1)}
+  $("streak").textContent=streak>0?`🔥 Série : ${streak} jour${streak>1?"s":""} complet${streak>1?"s":""}`:"Commence ta série dès aujourd’hui.";
+  const wk=$("week");wk.replaceChildren();
+  for(let i=6;i>=0;i--){const dt=new Date();dt.setDate(dt.getDate()-i);const t=log[todayKey(dt)]||[];const n=t.filter(Boolean).length;
+    const col=el("div");const bar=el("i");bar.style.height=(4+n/5*40)+"px";bar.title=`${n}/5`;
+    col.append(bar,el("span","",new Intl.DateTimeFormat("fr-FR",{weekday:"narrow"}).format(dt)));wk.append(col)}
+}
+
+/* ===== Tasbih ===== */
+const DHIKRS=[
+ {ar:"سُبْحَانَ اللَّهِ",fr:"SubhanAllah — Gloire à Allah",short:"SubhanAllah"},
+ {ar:"الْحَمْدُ لِلَّهِ",fr:"Alhamdulillah — Louange à Allah",short:"Alhamdulillah"},
+ {ar:"اللَّهُ أَكْبَرُ",fr:"Allahu Akbar — Allah est le plus grand",short:"Allahu Akbar"},
+ {ar:"لَا إِلَٰهَ إِلَّا اللَّهُ",fr:"La ilaha illa Allah — Il n’y a de divinité qu’Allah",short:"La ilaha illa Allah"},
+ {ar:"أَسْتَغْفِرُ اللَّهَ",fr:"Astaghfirullah — Je demande pardon à Allah",short:"Astaghfirullah"},
+ {ar:"لَا حَوْلَ وَلَا قُوَّةَ إِلَّا بِاللَّهِ",fr:"Il n’y a de force ni de puissance qu’en Allah",short:"La hawla wa la quwwata"},
+ {ar:"اللَّهُمَّ صَلِّ عَلَى مُحَمَّدٍ",fr:"Prière sur le Prophète ﷺ",short:"Salawat"}];
+let counts=store.get("kimaxDhikr",null),dhikrIdx=store.get("kimaxDhikrIdx",0);
+if(!counts||typeof counts!=="object"){counts={};const old=Number(localStorage.getItem("kimaxTasbih"));if(old>0)counts[0]=old}
+if(!DHIKRS[dhikrIdx])dhikrIdx=0;
+const goalVal=()=>Number($("goal").value)||33;
+function renderDhikr(){
+  const c=counts[dhikrIdx]||0,g=goalVal();
+  $("countNum").textContent=c;$("progressText").textContent=`${c} / ${g}`;
+  $("ring").style.setProperty("--p",Math.min(100,c/g*100));
+  $("dhikrAr").textContent=DHIKRS[dhikrIdx].ar;$("dhikrFr").textContent=DHIKRS[dhikrIdx].fr;
+  document.querySelectorAll("#dhikrPick .chip").forEach((b,i)=>b.classList.toggle("active",i===dhikrIdx));
+  store.set("kimaxDhikr",counts);store.set("kimaxDhikrIdx",dhikrIdx);
+}
+function bump(delta){
+  const c=Math.max(0,(counts[dhikrIdx]||0)+delta);counts[dhikrIdx]=c;renderDhikr();
+  if(delta>0){const g=goalVal();
+    if(c%g===0){$("tasbihMessage").textContent=`MashaAllah ! ${g} répétitions.`;toast("MashaAllah ! 🌙");if($("vibrate").checked&&navigator.vibrate)navigator.vibrate([80,60,80])}
+    else{$("tasbihMessage").textContent="Qu’Allah accepte tes invocations.";if($("vibrate").checked&&navigator.vibrate&&c%33===0)navigator.vibrate(40)}}
+}
+function initTasbih(){
+  const pick=$("dhikrPick");
+  DHIKRS.forEach((d,i)=>{const b=el("button","chip",d.short);b.type="button";b.addEventListener("click",()=>{dhikrIdx=i;renderDhikr()});pick.append(b)});
+  $("count").addEventListener("click",()=>bump(1));$("incrementBtn").addEventListener("click",()=>bump(1));
+  $("undoBtn").addEventListener("click",()=>bump(-1));
+  $("resetBtn").addEventListener("click",()=>{counts[dhikrIdx]=0;renderDhikr();$("tasbihMessage").textContent="Compteur réinitialisé."});
+  $("goal").addEventListener("change",renderDhikr);renderDhikr();
+}
+
+/* ===== 99 noms d’Allah ===== */
+const ASMA=[["Ar-Rahman","Le Tout Miséricordieux"],["Ar-Rahim","Le Très Miséricordieux"],["Al-Malik","Le Souverain"],["Al-Quddus","Le Très Saint"],["As-Salam","La Paix, Source de paix"],["Al-Mu’min","Celui qui accorde la sécurité"],["Al-Muhaymin","Le Protecteur, le Vigilant"],["Al-‘Aziz","Le Puissant"],["Al-Jabbar","Le Contraignant"],["Al-Mutakabbir","Le Suprême"],["Al-Khaliq","Le Créateur"],["Al-Bari’","Celui qui façonne l’existence"],["Al-Musawwir","Celui qui donne les formes"],["Al-Ghaffar","Celui qui pardonne sans cesse"],["Al-Qahhar","Le Dominateur"],["Al-Wahhab","Le Grand Donateur"],["Ar-Razzaq","Le Pourvoyeur"],["Al-Fattah","Celui qui ouvre"],["Al-‘Alim","L’Omniscient"],["Al-Qabid","Celui qui retient"],["Al-Basit","Celui qui étend"],["Al-Khafid","Celui qui abaisse"],["Ar-Rafi’","Celui qui élève"],["Al-Mu’izz","Celui qui donne la puissance"],["Al-Mudhill","Celui qui humilie"],["As-Sami’","L’Audient"],["Al-Basir","Le Clairvoyant"],["Al-Hakam","Le Juge"],["Al-‘Adl","Le Juste"],["Al-Latif","Le Subtil, le Bienveillant"],["Al-Khabir","Le Parfaitement Informé"],["Al-Halim","Le Longanime"],["Al-‘Azim","Le Magnifique"],["Al-Ghafur","Le Grand Pardonneur"],["Ash-Shakur","Le Très Reconnaissant"],["Al-‘Aliyy","Le Très Haut"],["Al-Kabir","Le Très Grand"],["Al-Hafiz","Le Gardien"],["Al-Muqit","Celui qui pourvoit aux subsistances"],["Al-Hasib","Celui qui suffit, le Comptable"],["Al-Jalil","Le Majestueux"],["Al-Karim","Le Généreux"],["Ar-Raqib","Celui qui observe"],["Al-Mujib","Celui qui exauce"],["Al-Wasi’","L’Immense"],["Al-Hakim","Le Sage"],["Al-Wadud","Le Très Aimant"],["Al-Majid","Le Glorieux"],["Al-Ba’ith","Celui qui ressuscite"],["Ash-Shahid","Le Témoin"],["Al-Haqq","La Vérité"],["Al-Wakil","Le Garant"],["Al-Qawiyy","Le Fort"],["Al-Matin","L’Inébranlable"],["Al-Waliyy","Le Protecteur"],["Al-Hamid","Le Digne de louange"],["Al-Muhsi","Celui qui dénombre"],["Al-Mubdi’","Celui qui initie la création"],["Al-Mu’id","Celui qui ramène à la vie"],["Al-Muhyi","Celui qui donne la vie"],["Al-Mumit","Celui qui donne la mort"],["Al-Hayy","Le Vivant"],["Al-Qayyum","Celui qui subsiste par Lui-même"],["Al-Wajid","Celui qui ne manque de rien"],["Al-Majid","Le Noble"],["Al-Wahid","L’Unique"],["Al-Ahad","L’Un"],["As-Samad","L’Absolu, le Soutien universel"],["Al-Qadir","Le Capable"],["Al-Muqtadir","Le Tout-Puissant"],["Al-Muqaddim","Celui qui avance"],["Al-Mu’akhkhir","Celui qui retarde"],["Al-Awwal","Le Premier"],["Al-Akhir","Le Dernier"],["Az-Zahir","L’Apparent"],["Al-Batin","Le Caché"],["Al-Wali","Le Maître"],["Al-Muta’ali","Le Très Élevé"],["Al-Barr","Le Bienfaisant"],["At-Tawwab","Celui qui accueille le repentir"],["Al-Muntaqim","Celui qui châtie"],["Al-‘Afuww","Celui qui efface les péchés"],["Ar-Ra’uf","Le Compatissant"],["Malik-ul-Mulk","Le Maître du Royaume"],["Dhul-Jalali wal-Ikram","Le Détenteur de la Majesté et de la Générosité"],["Al-Muqsit","L’Équitable"],["Al-Jami’","Celui qui rassemble"],["Al-Ghaniyy","Le Riche par Lui-même"],["Al-Mughni","Celui qui enrichit"],["Al-Mani’","Celui qui empêche"],["Ad-Darr","Celui qui peut nuire"],["An-Nafi’","Celui qui procure le bien"],["An-Nur","La Lumière"],["Al-Hadi","Le Guide"],["Al-Badi’","L’Incomparable"],["Al-Baqi","Le Permanent"],["Al-Warith","L’Héritier"],["Ar-Rashid","Celui qui guide vers le droit chemin"],["As-Sabur","Le Patient"]];
+let asmaArabic=[];
+function asmaCard(i,big){
+  const c=el("div",big?"card asma asma-feature":"asma");
+  c.append(el("div","n","N° "+(i+1)),el("div","ar",asmaArabic[i]||"﷽"),el("strong","",ASMA[i][0]),el("span","",ASMA[i][1]));return c;
+}
+function renderAsma(){
+  const q=$("asmaSearch").value.trim().toLocaleLowerCase("fr"),g=$("asmaGrid");g.replaceChildren();
+  ASMA.forEach((a,i)=>{if(!q||`${i+1} ${a[0]} ${a[1]}`.toLocaleLowerCase("fr").includes(q))g.append(asmaCard(i))});
+  if(!g.children.length)g.append(el("p","empty","Aucun nom trouvé."));
+  const n=$("notd");n.replaceChildren(el("span","tag","Nom d’Allah du jour"));const i=(dayOfYear()*7)%99;
+  n.append(el("div","arabic",asmaArabic[i]||""),el("h3","",`${ASMA[i][0]}`),el("p","",ASMA[i][1]),el("p","muted","N° "+(i+1)+" sur 99"));
+}
+async function initAsma(){
+  $("asmaSearch").addEventListener("input",renderAsma);
+  asmaArabic=store.get("kimaxAsmaAr",[]);renderAsma();
+  if(asmaArabic.length===99)return;
+  try{const r=await fetch("https://api.aladhan.com/v1/asmaAlHusna");const j=await r.json();
+    if(j.code===200&&j.data.length===99){asmaArabic=j.data.sort((a,b)=>a.number-b.number).map(x=>x.name);store.set("kimaxAsmaAr",asmaArabic);renderAsma()}}catch{}
+}
+
+/* ===== Douas ===== */
+const DOUAS=[
+ {c:"Repas",t:"Avant de manger",ar:"بِسْمِ اللَّهِ",tr:"Bismillah",fr:"Au nom d’Allah."},
+ {c:"Repas",t:"Après le repas",ar:"الْحَمْدُ لِلَّهِ الَّذِي أَطْعَمَنَا وَسَقَانَا وَجَعَلَنَا مُسْلِمِينَ",tr:"Alhamdu lillahi lladhi at’amana wa saqana wa ja’alana muslimin",fr:"Louange à Allah qui nous a nourris, abreuvés et faits musulmans."},
+ {c:"Quotidien",t:"Remercier Allah",ar:"الْحَمْدُ لِلَّهِ",tr:"Alhamdulillah",fr:"Louange à Allah."},
+ {c:"Quotidien",t:"Glorifier Allah",ar:"سُبْحَانَ اللَّهِ",tr:"SubhanAllah",fr:"Gloire et pureté à Allah."},
+ {c:"Quotidien",t:"Demander pardon",ar:"أَسْتَغْفِرُ اللَّهَ",tr:"Astaghfirullah",fr:"Je demande pardon à Allah."},
+ {c:"Quotidien",t:"Demander la facilité",ar:"رَبِّ يَسِّرْ وَلَا تُعَسِّرْ",tr:"Rabbi yassir wa la tu’assir",fr:"Seigneur, facilite et ne rends pas les choses difficiles."},
+ {c:"Quotidien",t:"Prière sur le Prophète ﷺ",ar:"اللَّهُمَّ صَلِّ عَلَى مُحَمَّدٍ",tr:"Allahumma salli ‘ala Muhammad",fr:"Ô Allah, prie sur Muhammad."},
+ {c:"Maison",t:"En sortant de chez soi",ar:"بِسْمِ اللَّهِ تَوَكَّلْتُ عَلَى اللَّهِ",tr:"Bismillah, tawakkaltu ‘ala Allah",fr:"Au nom d’Allah, je place ma confiance en Allah."},
+ {c:"Maison",t:"En entrant chez soi",ar:"بِسْمِ اللَّهِ وَلَجْنَا، وَبِسْمِ اللَّهِ خَرَجْنَا، وَعَلَى اللَّهِ رَبِّنَا تَوَكَّلْنَا",tr:"Bismillahi walajna, wa bismillahi kharajna, wa ‘ala Allahi rabbina tawakkalna",fr:"Au nom d’Allah nous entrons, au nom d’Allah nous sortons, et en Allah, notre Seigneur, nous plaçons notre confiance."},
+ {c:"Sommeil",t:"Avant de dormir",ar:"بِاسْمِكَ اللَّهُمَّ أَمُوتُ وَأَحْيَا",tr:"Bismika Allahumma amutu wa ahya",fr:"En Ton nom, ô Allah, je meurs et je vis.",s:"Rapporté par al-Boukhari"},
+ {c:"Sommeil",t:"Au réveil",ar:"الْحَمْدُ لِلَّهِ الَّذِي أَحْيَانَا بَعْدَ مَا أَمَاتَنَا وَإِلَيْهِ النُّشُورُ",tr:"Alhamdu lillahi lladhi ahyana ba’da ma amatana wa ilayhi n-nushur",fr:"Louange à Allah qui nous a redonné vie après nous avoir fait mourir, et c’est vers Lui la résurrection.",s:"Rapporté par al-Boukhari"},
+ {c:"Protection",t:"Demander protection",ar:"أَعُوذُ بِاللَّهِ مِنَ الشَّيْطَانِ الرَّجِيمِ",tr:"A’udhu billahi min ash-shaytan ir-rajim",fr:"Je cherche refuge auprès d’Allah contre Satan le lapidé."},
+ {c:"Protection",t:"Se confier à Allah",ar:"حَسْبُنَا اللَّهُ وَنِعْمَ الْوَكِيلُ",tr:"Hasbuna Allahu wa ni’ma l-wakil",fr:"Allah nous suffit, et quel excellent garant !",s:"Coran 3:173"},
+ {c:"Protection",t:"Dans l’épreuve (invocation de Yunus)",ar:"لَا إِلَٰهَ إِلَّا أَنتَ سُبْحَانَكَ إِنِّي كُنتُ مِنَ الظَّالِمِينَ",tr:"La ilaha illa anta subhanaka inni kuntu mina dh-dhalimin",fr:"Il n’y a de divinité que Toi ! Gloire à Toi ! J’ai été du nombre des injustes.",s:"Coran 21:87"},
+ {c:"Voyage",t:"En montant dans un véhicule",ar:"سُبْحَانَ الَّذِي سَخَّرَ لَنَا هَٰذَا وَمَا كُنَّا لَهُ مُقْرِنِينَ وَإِنَّا إِلَىٰ رَبِّنَا لَمُنقَلِبُونَ",tr:"Subhana lladhi sakhkhara lana hadha wa ma kunna lahu muqrinin, wa inna ila rabbina lamunqalibun",fr:"Gloire à Celui qui nous a soumis ceci alors que nous n’étions pas capables de le dominer, et c’est vers notre Seigneur que nous retournerons.",s:"Coran 43:13-14"},
+ {c:"Cœur & savoir",t:"Demander plus de science",ar:"رَّبِّ زِدْنِي عِلْمًا",tr:"Rabbi zidni ‘ilma",fr:"Seigneur, accroît mon savoir.",s:"Coran 20:114"},
+ {c:"Cœur & savoir",t:"Pour ses parents",ar:"رَّبِّ ارْحَمْهُمَا كَمَا رَبَّيَانِي صَغِيرًا",tr:"Rabbi rhamhuma kama rabbayani saghira",fr:"Seigneur, fais-leur miséricorde comme ils m’ont élevé tout petit.",s:"Coran 17:24"},
+ {c:"Cœur & savoir",t:"Le bien ici-bas et dans l’au-delà",ar:"رَبَّنَا آتِنَا فِي الدُّنْيَا حَسَنَةً وَفِي الْآخِرَةِ حَسَنَةً وَقِنَا عَذَابَ النَّارِ",tr:"Rabbana atina fi d-dunya hasanatan wa fi l-akhirati hasanatan wa qina ‘adhaba n-nar",fr:"Seigneur, accorde-nous une belle part ici-bas et une belle part dans l’au-delà, et protège-nous du châtiment du Feu.",s:"Coran 2:201"},
+ {c:"Cœur & savoir",t:"Rester ferme dans la foi",ar:"يَا مُقَلِّبَ الْقُلُوبِ ثَبِّتْ قَلْبِي عَلَى دِينِكَ",tr:"Ya muqallibal-qulub, thabbit qalbi ‘ala dinik",fr:"Ô Toi qui retournes les cœurs, raffermis mon cœur dans Ta religion.",s:"Rapporté par at-Tirmidhi"}];
+let duaCat="Tous";
+function renderDuas(){
+  const cats=["Tous",...new Set(DOUAS.map(d=>d.c))],f=$("duaFilters");f.replaceChildren();
+  cats.forEach(c=>{const b=el("button","chip"+(c===duaCat?" active":""),c);b.type="button";b.addEventListener("click",()=>{duaCat=c;renderDuas()});f.append(b)});
+  const g=$("duaGrid");g.replaceChildren();
+  DOUAS.filter(d=>duaCat==="Tous"||d.c===duaCat).forEach(d=>{
+    const c=el("div","card dua-card");
+    c.append(el("span","cat",d.c),el("h3","",d.t),el("p","arabic",d.ar),el("p","",d.tr),el("p","muted",d.fr));
+    if(d.s)c.append(el("p","src",d.s));
+    const tools=el("div","verse-tools"),text=`${d.t}\n${d.ar}\n${d.tr}\n${d.fr}`;
+    const a=el("button","verse-tool","Copier");a.type="button";a.addEventListener("click",()=>copyText(text,"Doua copiée"));
+    const b=el("button","verse-tool","Partager");b.type="button";b.addEventListener("click",()=>shareText(text));
+    tools.append(a,b);c.append(tools);g.append(c);
+  });
+}
+
+/* ===== Hadiths ===== */
+const HADITHS=[
+ {t:"Les intentions",q:"Les actes ne valent que par les intentions.",s:"Al-Boukhari et Muslim"},
+ {t:"La miséricorde",q:"Celui qui ne fait pas miséricorde ne recevra pas miséricorde.",s:"Al-Boukhari et Muslim"},
+ {t:"La bonne parole",q:"La bonne parole est une aumône.",s:"Al-Boukhari et Muslim"},
+ {t:"La patience",q:"La patience est une lumière.",s:"Muslim"},
+ {t:"L’amour du frère",q:"Aucun de vous ne sera croyant tant qu’il n’aimera pas pour son frère ce qu’il aime pour lui-même.",s:"Al-Boukhari et Muslim"},
+ {t:"Parler avec bien",q:"Que celui qui croit en Allah et au Jour dernier dise du bien ou se taise.",s:"Al-Boukhari et Muslim"},
+ {t:"Le Coran",q:"Le meilleur d’entre vous est celui qui apprend le Coran et l’enseigne.",s:"Al-Boukhari"},
+ {t:"Le sourire",q:"Ton sourire à ton frère est une aumône.",s:"At-Tirmidhi"},
+ {t:"La facilité",q:"Facilitez et ne rendez pas les choses difficiles.",s:"Al-Boukhari et Muslim"},
+ {t:"La maîtrise de soi",q:"Le fort n’est pas celui qui terrasse les gens ; le fort est celui qui se maîtrise lors de la colère.",s:"Al-Boukhari et Muslim"},
+ {t:"La propreté",q:"La purification est la moitié de la foi.",s:"Muslim"},
+ {t:"La régularité",q:"Les actes les plus aimés d’Allah sont les plus réguliers, même s’ils sont peu nombreux.",s:"Al-Boukhari et Muslim"},
+ {t:"Chercher la science",q:"Celui qui emprunte un chemin pour y chercher une science, Allah lui facilite un chemin vers le Paradis.",s:"Muslim"},
+ {t:"Le bon conseil",q:"La religion, c’est le bon conseil.",s:"Muslim"}];
+function renderHadiths(){
+  const g=$("hadithGrid");
+  HADITHS.forEach(h=>{const c=el("div","card hadith-card");c.append(el("h3","",h.t),el("p","q",`« ${h.q} »`),el("p","muted",`${h.s} — traduction du sens.`));
+    const tools=el("div","verse-tools");const b=el("button","verse-tool","Partager");b.type="button";b.addEventListener("click",()=>shareText(`« ${h.q} » — ${h.s}`));tools.append(b);c.append(tools);g.append(c)});
+  const h=HADITHS[(dayOfYear()*3)%HADITHS.length],n=$("hotd");
+  n.append(el("span","tag","Hadith du jour"),el("p","q",`« ${h.q} »`),el("p","muted",`${h.s} — traduction du sens.`));
+}
+
+/* ===== Verset du jour ===== */
+async function initVotd(){
+  const box=$("votd"),key=todayKey(),cached=store.get("kimaxVotd",null);
+  const show=v=>{box.replaceChildren(el("span","tag","Verset du jour"),el("div","arabic",v.ar),el("p","translation",v.fr),el("p","muted",`${v.ref}`));
+    const tools=el("div","verse-tools");const b=el("button","verse-tool","Partager");b.type="button";b.addEventListener("click",()=>shareText(`${v.ar}\n${v.fr}\n— ${v.ref}`));tools.append(b);box.append(tools)};
+  if(cached&&cached.date===key){show(cached.v);return}
+  const n=((dayOfYear()*131+new Date().getFullYear()*7)%6236)+1;
+  try{
+    const r=await fetch(API+`ayah/${n}/editions/quran-uthmani,fr.hamidullah`);const j=await r.json();if(j.code!==200)throw Error();
+    const v={ar:j.data[0].text,fr:j.data[1].text,ref:`${j.data[0].surah.englishName} (${j.data[0].surah.number}:${j.data[0].numberInSurah})`};
+    store.set("kimaxVotd",{date:key,v});show(v);
+  }catch{box.replaceChildren(el("span","tag","Verset du jour"),el("div","arabic","فَاذْكُرُونِي أَذْكُرْكُمْ"),el("p","translation","Souvenez-vous de Moi donc, Je Me souviendrai de vous."),el("p","muted","Coran, Al-Baqara (2:152)"))}
+}
+
+/* ===== Zakat ===== */
+function calcZakat(){
+  const v=id=>Math.max(0,parseFloat(String($(id).value).replace(/\s/g,"").replace(",","."))||0);
+  const net=v("zCash")+v("zGold")+v("zInvest")+v("zOther")-v("zDebt"),price=v("zGoldPrice"),nisab=price*85,out=$("zResult");
+  const fmt=n=>new Intl.NumberFormat("fr-FR",{style:"currency",currency:"EUR"}).format(n);
+  out.replaceChildren();
+  if(!price){out.textContent="Renseigne le prix de l’or au gramme pour connaître le nisab.";return}
+  out.append(el("p","muted",`Patrimoine net : ${fmt(net)} · Nisab (85 g d’or) : ${fmt(nisab)}`));
+  if(net>=nisab&&net>0){out.append(el("span","muted","Zakat estimée (2,5 %)"),el("b","",fmt(net*0.025)))}
+  else out.append(el("p","","Ton patrimoine net est sous le nisab : la zakat n’est pas due à ce jour."));
+  store.set("kimaxZakat",{zCash:$("zCash").value,zGold:$("zGold").value,zInvest:$("zInvest").value,zOther:$("zOther").value,zDebt:$("zDebt").value,zGoldPrice:$("zGoldPrice").value});
+}
+function initZakat(){
+  const s=store.get("kimaxZakat",{});
+  ["zCash","zGold","zInvest","zOther","zDebt","zGoldPrice"].forEach(id=>{if(s[id])$(id).value=s[id];$(id).addEventListener("input",calcZakat)});
+  if(s.zGoldPrice)calcZakat();
+}
+
+/* ===== Qibla ===== */
+let qiblaBearing=null,heading=null;
 function bearingToKaaba(lat,lon){const kLat=21.4225*Math.PI/180,kLon=39.8262*Math.PI/180,pLat=lat*Math.PI/180,pLon=lon*Math.PI/180;const y=Math.sin(kLon-pLon),x=Math.cos(pLat)*Math.tan(kLat)-Math.sin(pLat)*Math.cos(kLon-pLon);return(Math.atan2(y,x)*180/Math.PI+360)%360}
-function showNextPrayer(times){if(prayerTimer)clearInterval(prayerTimer);const order=[["Fajr","Fajr"],["Dhuhr","Dhuhr"],["Asr","Asr"],["Maghrib","Maghrib"],["Isha","Isha"]];function update(){const now=new Date();let next=null;for(const [key,label] of order){const raw=String(times[key]||"").split(" ")[0];const [h,m]=raw.split(":").map(Number);if(!Number.isFinite(h)||!Number.isFinite(m))continue;const d=new Date();d.setHours(h,m,0,0);if(d>now){next={label,time:d};break}}if(!next){$("nextPrayer").textContent="Prochaine prière : Fajr demain";return}const ms=next.time-now;const hh=Math.floor(ms/3600000),mm=Math.floor(ms%3600000/60000),ss=Math.floor(ms%60000/1000);$("nextPrayer").textContent=`Prochaine prière : ${next.label} · dans ${hh} h ${mm} min ${ss} s`}update();prayerTimer=setInterval(update,1000)}
-function getQibla(){const status=$("qiblaStatus");$("qiblaResult").classList.add("hidden");if(!navigator.geolocation){status.textContent="La géolocalisation n’est pas disponible sur cet appareil.";return}status.textContent="Localisation en cours…";navigator.geolocation.getCurrentPosition(pos=>{const b=bearingToKaaba(pos.coords.latitude,pos.coords.longitude);$("qiblaDegree").textContent=`${b.toFixed(1)}°`;const dirs=["Nord","Nord-Est","Est","Sud-Est","Sud","Sud-Ouest","Ouest","Nord-Ouest"];const dir=dirs[Math.round(b/45)%8];$("qiblaDirection").textContent=`Direction approximative : ${dir}`;$("compassNeedle").style.transform=`rotate(${b}deg)`;$("qiblaResult").classList.remove("hidden");status.textContent="Direction calculée depuis ta position."},err=>{status.textContent=err.code===1?"Autorisation refusée. Active la localisation pour continuer.":"Position introuvable. Réessaie dans un endroit dégagé."},{enableHighAccuracy:true,timeout:12000,maximumAge:60000})}
-function initDates(){const now=new Date();$("year").textContent=now.getFullYear();const greg=new Intl.DateTimeFormat("fr-FR",{dateStyle:"full"}).format(now);$("gregorianDate").textContent=greg;$("quickDate").textContent=new Intl.DateTimeFormat("fr-FR",{day:"numeric",month:"short"}).format(now);try{const hijri=new Intl.DateTimeFormat("fr-FR-u-ca-islamic", {day:"numeric",month:"long",year:"numeric"}).format(now);$("hijriDate").textContent=hijri;$("quickHijri").textContent=hijri}catch{$("hijriDate").textContent="Calendrier hégirien non disponible sur ce navigateur.";$("quickHijri").textContent="—"}}
-function initTheme(){const saved=localStorage.getItem("kimaxTheme");if(saved==="light")document.body.classList.add("theme-light");$("themeBtn").textContent=document.body.classList.contains("theme-light")?"☾":"☼";$("themeBtn").addEventListener("click",()=>{document.body.classList.toggle("theme-light");const light=document.body.classList.contains("theme-light");try{localStorage.setItem("kimaxTheme",light?"light":"dark")}catch{}$("themeBtn").textContent=light?"☾":"☼";toast(light?"Thème clair activé":"Thème nuit activé")})}
-$("loadSurahBtn").addEventListener("click",loadSurah);$("prayerBtn").addEventListener("click",getPrayers);$("city").addEventListener("keydown",e=>{if(e.key==="Enter")getPrayers()});$("goal").addEventListener("change",updateProgress);$("incrementBtn").addEventListener("click",increment);$("resetBtn").addEventListener("click",resetCount);$("qiblaBtn").addEventListener("click",getQibla);
-initDates();initTheme();updateCount();renderFavorites();initQuran();
+function distKaaba(lat,lon){const R=6371,r=Math.PI/180,dLat=(21.4225-lat)*r,dLon=(39.8262-lon)*r;const a=Math.sin(dLat/2)**2+Math.cos(lat*r)*Math.cos(21.4225*r)*Math.sin(dLon/2)**2;return 2*R*Math.asin(Math.sqrt(a))}
+function renderCompass(){
+  if(qiblaBearing===null)return;const h=heading||0;
+  $("dial").setAttribute("transform",`rotate(${-h} 100 100)`);$("needle").setAttribute("transform",`rotate(${qiblaBearing} 100 100)`);
+}
+function getQibla(){
+  const status=$("qiblaStatus");$("qiblaResult").classList.add("hidden");
+  if(!navigator.geolocation){status.textContent="La géolocalisation n’est pas disponible sur cet appareil.";return}
+  status.textContent="Localisation en cours…";
+  navigator.geolocation.getCurrentPosition(pos=>{
+    const{latitude:lat,longitude:lon}=pos.coords,b=bearingToKaaba(lat,lon);qiblaBearing=b;
+    $("qiblaDegree").textContent=`${b.toFixed(1)}°`;
+    const dirs=["Nord","Nord-Est","Est","Sud-Est","Sud","Sud-Ouest","Ouest","Nord-Ouest"];
+    $("qiblaDirection").textContent=`Direction approximative : ${dirs[Math.round(b/45)%8]}`;
+    $("qiblaDistance").textContent=`Distance jusqu’à La Mecque : environ ${Math.round(distKaaba(lat,lon)).toLocaleString("fr-FR")} km`;
+    $("qiblaResult").classList.remove("hidden");renderCompass();status.textContent="Direction calculée depuis ta position.";
+  },err=>{status.textContent=err.code===1?"Autorisation refusée. Active la localisation pour continuer.":"Position introuvable. Réessaie dans un endroit dégagé."},{enableHighAccuracy:true,timeout:12000,maximumAge:60000});
+}
+async function enableCompass(){
+  try{
+    if(typeof DeviceOrientationEvent!=="undefined"&&typeof DeviceOrientationEvent.requestPermission==="function"){
+      const r=await DeviceOrientationEvent.requestPermission();if(r!=="granted"){toast("Autorisation de la boussole refusée");return}}
+    const handler=e=>{let h=null;if(typeof e.webkitCompassHeading==="number")h=e.webkitCompassHeading;else if(e.alpha!==null&&e.alpha!==undefined)h=(360-e.alpha)%360;if(h!==null){heading=h;renderCompass()}};
+    addEventListener("deviceorientationabsolute",handler,true);addEventListener("deviceorientation",handler,true);
+    toast("Boussole activée : tiens ton téléphone à plat");
+  }catch{toast("Boussole non disponible sur cet appareil")}
+}
+
+/* ===== Quiz ===== */
+const QUIZ=[
+ {q:"Combien y a-t-il de piliers de l’Islam ?",o:["4","5","6","7"],a:1},
+ {q:"Quelle est la première sourate du Coran ?",o:["Al-Baqara","Al-Ikhlas","Al-Fatiha","An-Nas"],a:2},
+ {q:"Combien de sourates compte le Coran ?",o:["99","110","114","120"],a:2},
+ {q:"Quel mois est celui du jeûne obligatoire ?",o:["Rajab","Ramadan","Chawwal","Mouharram"],a:1},
+ {q:"Combien de rakaat comporte la prière du Maghrib ?",o:["2","3","4","5"],a:1},
+ {q:"Quelle est la plus longue sourate du Coran ?",o:["Al-Imran","An-Nisa","Al-Baqara","Al-Kahf"],a:2},
+ {q:"Quel est le taux de la zakat sur l’épargne ?",o:["1 %","2,5 %","5 %","10 %"],a:1},
+ {q:"Vers quelle ville les musulmans se tournent-ils pour prier ?",o:["Médine","Jérusalem","La Mecque","Le Caire"],a:2},
+ {q:"Quel est le premier mot révélé au Prophète ﷺ ?",o:["Qul (Dis)","Iqra (Lis)","Bismillah","Alhamdulillah"],a:1},
+ {q:"Combien de prières obligatoires par jour ?",o:["3","4","5","6"],a:2}];
+let qi=0,qScore=0;
+function renderQuiz(){
+  const box=$("quizBox");box.replaceChildren();
+  if(qi>=QUIZ.length){
+    box.append(el("div","quiz-score",`${qScore}/${QUIZ.length}`),el("p","",qScore>=8?"MashaAllah, excellent !":qScore>=5?"Bien joué, continue d’apprendre !":"Chaque pas compte, réessaie pour progresser."));
+    const b=el("button","btn","REJOUER");b.type="button";b.addEventListener("click",()=>{qi=0;qScore=0;renderQuiz()});box.append(b);return;
+  }
+  const q=QUIZ[qi],bar=el("div","progress"),fill=el("div");fill.style.width=(qi/QUIZ.length*100)+"%";bar.append(fill);
+  box.append(bar,el("p","muted",`Question ${qi+1} / ${QUIZ.length}`),el("div","quiz-q",q.q));
+  const opts=el("div","quiz-opts");
+  q.o.forEach((t,i)=>{const b=el("button","quiz-opt",t);b.type="button";b.addEventListener("click",()=>{
+    [...opts.children].forEach((x,j)=>{x.disabled=true;if(j===q.a)x.classList.add("ok")});
+    if(i===q.a)qScore++;else b.classList.add("ko");
+    setTimeout(()=>{qi++;renderQuiz()},1100)});opts.append(b)});
+  box.append(opts);
+}
+
+/* ===== Démarrage ===== */
+$("qiblaBtn").addEventListener("click",getQibla);$("compassBtn").addEventListener("click",enableCompass);
+initTheme();initDates();renderFavorites();renderDuas();renderHadiths();initTasbih();initZakat();renderTracker();renderQuiz();
+initPrayers();initAsma();initVotd();initQuran();
 </script>
 </body>
 </html>
