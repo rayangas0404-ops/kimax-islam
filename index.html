@@ -283,6 +283,13 @@ footer .brand{justify-content:center}footer strong{color:var(--gold2)}
   .ring-btn{font-size:54px}
 }
 @media(max-width:440px){.hero h1{letter-spacing:2px}.hero p{font-size:14px}.arabic{font-size:27px}.quick-value{font-size:15px}.quick-item{padding:12px 6px}}
+.ios-help{position:fixed;inset:0;z-index:95;background:#050c09e6;backdrop-filter:blur(10px);display:grid;place-items:center;padding:20px;animation:fade .25s ease}
+.ios-card{position:relative;max-width:440px;width:100%;background:var(--panel-bg);border:1px solid var(--gold);border-radius:22px;padding:28px 24px 24px;text-align:center;box-shadow:var(--shadow)}
+.ios-card h3{font:600 24px "Playfair Display",serif;color:var(--gold2);margin:8px 0}
+.ios-close{position:absolute;top:12px;right:12px}
+.ios-steps{text-align:left;padding-left:22px;margin:16px 0;font-size:14px}
+.ios-steps li{margin:12px 0}
+.ios-share{display:inline-block;background:#fff;border-radius:6px;padding:0 4px;font-size:13px}
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}html{scroll-behavior:auto}.js .reveal{opacity:1;transform:none}}
 </style>
 </head>
@@ -453,6 +460,21 @@ footer .brand{justify-content:center}footer strong{color:var(--gold2)}
   <p>Qu’Allah nous guide et accepte nos œuvres. آمين</p>
 </footer>
 <button id="toTop" type="button" aria-label="Remonter en haut">↑</button>
+<div id="iosHelp" class="ios-help hidden" role="dialog" aria-modal="true" aria-labelledby="iosTitle">
+  <div class="ios-card">
+    <button class="icon-tool ios-close" id="iosClose" type="button" aria-label="Fermer">✕</button>
+    <div class="card-icon">📲</div>
+    <h3 id="iosTitle">Installer l’application</h3>
+    <p class="muted" id="iosIntro">Apple ne permet pas l’installation en un seul clic. Voici les 3 étapes, ça prend 10 secondes :</p>
+    <ol class="ios-steps">
+      <li>Touche le bouton <b>Partager</b> <span class="ios-share">⬆️</span> de Safari (en haut à droite, à côté de la barre d’adresse).</li>
+      <li>Fais défiler et touche <b>« Sur l’écran d’accueil »</b>.</li>
+      <li>Touche <b>« Ajouter »</b> en haut à droite.</li>
+    </ol>
+    <p class="muted" style="font-size:12px">L’icône KIMAX ISLAM apparaît alors sur ton écran d’accueil, et le site s’ouvre en plein écran comme une vraie application. Il faut être dans <b>Safari</b>.</p>
+    <button class="btn" id="iosOk" type="button">J’AI COMPRIS</button>
+  </div>
+</div>
 <div id="toast" class="toast" role="status" aria-live="polite"></div>
 
 <script>
@@ -961,9 +983,14 @@ addEventListener("appinstalled",()=>{installEvent=null;$("installBtn").classList
 $("installBtn").addEventListener("click",async()=>{
   if(installEvent){installEvent.prompt();try{await installEvent.userChoice}catch{}installEvent=null;return}
   const ua=navigator.userAgent;
-  if(/iPhone|iPad|iPod/.test(ua))toast("iPhone : touche Partager ⬆️ puis « Sur l’écran d’accueil »");
+  const isApple=/iPhone|iPad|iPod/.test(ua)||(navigator.platform==="MacIntel"&&navigator.maxTouchPoints>1);
+  if(isApple){$("iosHelp").classList.remove("hidden");$("iosOk").focus()}
   else toast("Ouvre le menu du navigateur (⋮) puis « Installer l’application »");
 });
+const closeIos=()=>$("iosHelp").classList.add("hidden");
+$("iosOk").addEventListener("click",closeIos);$("iosClose").addEventListener("click",closeIos);
+$("iosHelp").addEventListener("click",e=>{if(e.target.id==="iosHelp")closeIos()});
+document.addEventListener("keydown",e=>{if(e.key==="Escape")closeIos()});
 if("serviceWorker" in navigator&&location.protocol.startsWith("http")){
   addEventListener("load",()=>navigator.serviceWorker.register("sw.js").catch(()=>{}));
 }
