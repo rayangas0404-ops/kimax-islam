@@ -17,6 +17,12 @@
 <meta name="twitter:image" content="https://kimax-islam.onrender.com/og-image.png">
 <title>KIMAX ISLAM — Votre espace spirituel</title>
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='30' fill='%230e1d16' stroke='%23d8bd7b' stroke-width='3'/%3E%3Cpath d='M38 14a18 18 0 1 0 0 36 14 14 0 1 1 0-36z' fill='%23f0dda9'/%3E%3C/svg%3E">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="KIMAX ISLAM">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <script>document.documentElement.classList.add("js")</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -314,7 +320,7 @@ footer .brand{justify-content:center}footer strong{color:var(--gold2)}
     <div class="hero-arabic">السَّلَامُ عَلَيْكُمْ</div>
     <h1>KIMAX ISLAM</h1>
     <p>Un espace élégant pour lire, écouter, apprendre et nourrir sa spiritualité au quotidien. Que chaque instant soit une occasion de se rapprocher d’Allah.</p>
-    <div class="actions"><a class="btn" href="#coran">DÉCOUVRIR LE CORAN</a><a class="btn btn-ghost" href="#prieres">HORAIRES DE PRIÈRE</a></div>
+    <div class="actions"><a class="btn" href="#coran">DÉCOUVRIR LE CORAN</a><a class="btn btn-ghost" href="#prieres">HORAIRES DE PRIÈRE</a><button class="btn btn-ghost" id="installBtn" type="button">📲 INSTALLER L’APPLI</button></div>
     <div class="hero-chips"><span>114 SOURATES</span><span>AUDIO</span><span>99 NOMS D’ALLAH</span><span>QIBLA</span><span>ZAKAT</span></div>
   </div>
 </div>
@@ -944,6 +950,22 @@ function renderQuiz(){
     if(i===q.a)qScore++;else b.classList.add("ko");
     setTimeout(()=>{qi++;renderQuiz()},1100)});opts.append(b)});
   box.append(opts);
+}
+
+/* ===== Application installable (PWA) ===== */
+let installEvent=null;
+const isStandalone=()=>matchMedia("(display-mode: standalone)").matches||navigator.standalone===true;
+if(isStandalone())$("installBtn").classList.add("hidden");
+addEventListener("beforeinstallprompt",e=>{e.preventDefault();installEvent=e});
+addEventListener("appinstalled",()=>{installEvent=null;$("installBtn").classList.add("hidden");toast("Application installée 🌙")});
+$("installBtn").addEventListener("click",async()=>{
+  if(installEvent){installEvent.prompt();try{await installEvent.userChoice}catch{}installEvent=null;return}
+  const ua=navigator.userAgent;
+  if(/iPhone|iPad|iPod/.test(ua))toast("iPhone : touche Partager ⬆️ puis « Sur l’écran d’accueil »");
+  else toast("Ouvre le menu du navigateur (⋮) puis « Installer l’application »");
+});
+if("serviceWorker" in navigator&&location.protocol.startsWith("http")){
+  addEventListener("load",()=>navigator.serviceWorker.register("sw.js").catch(()=>{}));
 }
 
 /* ===== Démarrage ===== */
