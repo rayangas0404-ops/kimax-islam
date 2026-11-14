@@ -274,7 +274,7 @@ footer .brand{justify-content:center}footer strong{color:var(--gold2)}
 <div id="progress"></div>
 <header><div class="head-inner">
   <!-- Don Palestine : l’adresse du don se change en haut du script (DON_URL) -->
-  <a class="pal-donate" data-don href="https://www.secours-islamique.org" target="_blank" rel="noopener noreferrer" aria-label="Faire un don pour la Palestine" title="Faire un don pour la Palestine">
+  <a class="pal-donate" data-don href="https://www.paypal.com/donate/?hosted_button_id=3FBNLMGT3JAJ2" target="_blank" rel="noopener noreferrer" aria-label="Faire un don pour la Palestine" title="Faire un don pour la Palestine">
     <span class="pal-flag"><svg viewBox="0 0 60 40" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect width="60" height="13.34" fill="#000"/><rect y="13.33" width="60" height="13.34" fill="#fff"/><rect y="26.66" width="60" height="13.34" fill="#007a3d"/><path d="M0 0L28 20L0 40Z" fill="#ce1126"/></svg></span>
     <span class="pal-text"><strong>Soutenir la Palestine <span class="pal-heart">♥</span></strong><small>FAIRE UN DON</small></span>
   </a>
@@ -431,7 +431,7 @@ footer .brand{justify-content:center}footer strong{color:var(--gold2)}
   <div class="brand"><span class="brand-mark">۞</span><span><span class="brand-name">KIMAX ISLAM</span><br><span class="brand-sub">UN ESPACE POUR LA FOI</span></span></div>
   <div class="foot-links" id="footLinks"></div>
   <p>La foi au cœur de ton quotidien.</p>
-  <p><a data-don href="https://www.secours-islamique.org" target="_blank" rel="noopener noreferrer" style="color:var(--gold2)">🇵🇸 Faire un don pour la Palestine</a></p>
+  <p><a data-don href="https://www.paypal.com/donate/?hosted_button_id=3FBNLMGT3JAJ2" target="_blank" rel="noopener noreferrer" style="color:var(--gold2)">🇵🇸 Faire un don pour la Palestine</a></p>
   <p>Créé avec soin par <strong>KIMAX & YOUNES</strong></p>
   <small>© <span id="year"></span> KIMAX ISLAM — Tous droits réservés.</small>
   <p>Qu’Allah nous guide et accepte nos œuvres. آمين</p>
@@ -443,7 +443,7 @@ footer .brand{justify-content:center}footer strong{color:var(--gold2)}
 "use strict";
 /* ===== Réglages ===== */
 const API="https://api.alquran.cloud/v1/";
-const DON_URL="https://www.secours-islamique.org"; // ← mets ici la page de don de ton choix
+const DON_URL="https://www.paypal.com/donate/?hosted_button_id=3FBNLMGT3JAJ2"; // ← mets ici la page de don de ton choix
 const $=id=>document.getElementById(id);
 const store={get(k,f){try{const v=JSON.parse(localStorage.getItem(k));return v??f}catch{return f}},set(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch{}}};
 const el=(tag,cls,text)=>{const e=document.createElement(tag);if(cls)e.className=cls;if(text!==undefined)e.textContent=text;return e};
