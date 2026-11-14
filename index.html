@@ -290,6 +290,18 @@ footer .brand{justify-content:center}footer strong{color:var(--gold2)}
 .ios-steps{text-align:left;padding-left:22px;margin:16px 0;font-size:14px}
 .ios-steps li{margin:12px 0}
 .ios-share{display:inline-block;background:#fff;border-radius:6px;padding:0 4px;font-size:13px}
+.search-hit{display:block;width:100%;text-align:left;margin:8px 0;padding:12px 16px;border-radius:14px;border:1px solid var(--field-line);background:var(--chip);color:var(--cream);transition:.2s}
+.search-hit:hover{border-color:var(--gold)}
+.search-hit b{display:block;color:var(--gold2);font-size:12px;letter-spacing:.5px;margin-bottom:3px}
+.search-hit span{font-size:13px;opacity:.9}
+#qResults{max-width:760px;margin:6px auto 0;text-align:left}
+.adhkar-done{opacity:.65;border-color:#7fd29a}
+.adhkar-done h3:after{content:" ✓";color:#7fd29a}
+.plan-top{display:grid;gap:6px;margin-bottom:10px}
+.plan-big{font:700 40px "Playfair Display",serif;color:var(--gold2)}
+.plan-reader-head{display:flex;justify-content:space-between;align-items:center;gap:10px;margin:26px 0 6px;padding-top:20px;border-top:1px solid var(--hair)}
+.surah-sep{font:600 22px "Amiri",serif;color:var(--gold);text-align:center;margin:18px 0 0;border-top:1px dashed var(--hair);padding-top:14px}
+.update-bar{position:fixed;left:50%;bottom:76px;transform:translateX(-50%);z-index:96;display:flex;align-items:center;gap:14px;background:#1b3022;border:1px solid var(--gold);color:var(--gold2);padding:10px 14px 10px 18px;border-radius:999px;box-shadow:var(--shadow);max-width:94vw;font-size:13px}
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}html{scroll-behavior:auto}.js .reveal{opacity:1;transform:none}}
 </style>
 </head>
@@ -354,6 +366,7 @@ footer .brand{justify-content:center}footer strong{color:var(--gold2)}
 <div class="panel">
   <div class="quran-toolbar"><input id="surahSearch" class="field" placeholder="Rechercher une sourate…" aria-label="Rechercher une sourate"></div>
   <div class="row"><select id="surahSelect" class="field" aria-label="Choisir une sourate"><option value="">Chargement des sourates…</option></select><button class="btn" id="loadSurahBtn" type="button">OUVRIR LA SOURATE</button></div>
+  <div class="row" style="margin:14px 0 4px"><input id="qSearch" class="field" placeholder="Chercher un mot dans le Coran (ex. patience)" aria-label="Rechercher dans le Coran" style="min-width:min(320px,100%)"><button class="btn btn-ghost" id="qSearchBtn" type="button">🔎 CHERCHER</button></div><div id="qResults"></div>
   <div class="reader-opts">
     <label>Taille <input type="range" id="arSize" min="24" max="52" value="32" aria-label="Taille du texte arabe"></label>
     <label><input type="checkbox" id="showTr" checked> Traduction</label>
@@ -364,7 +377,7 @@ footer .brand{justify-content:center}footer strong{color:var(--gold2)}
 
 <section class="section reveal" id="prieres"><div class="section-kicker">Organisation quotidienne</div><h2 class="section-title">Horaires de prière</h2><div class="ornament">✧</div><p class="section-desc">Entre ta ville ou utilise ta position pour consulter les horaires du jour.</p>
 <div class="panel">
-  <div class="row"><input id="city" class="field" placeholder="Ex. : Nancy, France" autocomplete="address-level2" aria-label="Ville"><button class="btn" id="prayerBtn" type="button">RECHERCHER</button><button class="btn btn-ghost" id="geoPrayerBtn" type="button">📍 MA POSITION</button></div>
+  <div class="row"><input id="city" class="field" placeholder="Ex. : Nancy, France" autocomplete="address-level2" aria-label="Ville"><button class="btn" id="prayerBtn" type="button">RECHERCHER</button><button class="btn btn-ghost" id="geoPrayerBtn" type="button">📍 MA POSITION</button><a class="btn btn-ghost" target="_blank" rel="noopener noreferrer" href="https://www.google.com/maps/search/mosqu%C3%A9e+pr%C3%A8s+de+moi">🕌 MOSQUÉES PROCHES</a></div>
   <div class="row" style="margin-top:12px"><select id="method" class="field" aria-label="Méthode de calcul"><option value="12">UOIF (France)</option><option value="3">Ligue islamique mondiale</option><option value="2">ISNA (Amérique du Nord)</option><option value="5">Égypte</option><option value="4">Umm al-Qura (La Mecque)</option><option value="1">Karachi</option></select></div>
   <div id="prayerStatus" class="status" role="status"></div><div id="nextPrayer" aria-live="polite"></div><div id="prayerTimes" class="prayer-grid"></div>
   <p class="muted" style="font-size:12px">Les horaires dépendent de la méthode de calcul et des paramètres locaux. Vérifie-les auprès de ta mosquée.</p>
@@ -381,6 +394,14 @@ footer .brand{justify-content:center}footer strong{color:var(--gold2)}
   <div class="counter-actions" style="margin-top:14px"><button class="btn" id="incrementBtn" type="button">＋ COMPTER</button><button class="btn btn-ghost" id="undoBtn" type="button">− RETIRER</button><button class="btn btn-ghost" id="resetBtn" type="button">RÉINITIALISER</button></div>
   <p id="tasbihMessage" class="muted">Qu’Allah accepte tes invocations.</p>
 </div></section>
+
+<section class="section reveal" id="adhkar"><div class="section-kicker">Matin & soir</div><h2 class="section-title">Adhkar du matin et du soir</h2><div class="ornament">☀</div><p class="section-desc">Coche chaque dhikr au fur et à mesure. Ta progression est enregistrée pour la journée, sur cet appareil.</p>
+<div class="row" id="adhkarTabs" style="margin-top:18px"></div>
+<div class="progress"><div id="adhkarBar"></div></div><p class="muted" id="adhkarText"></p>
+<div class="cards" id="adhkarList"></div></section>
+
+<section class="section reveal" id="plan"><div class="section-kicker">Objectif</div><h2 class="section-title">Plan de lecture du Coran</h2><div class="ornament">✧</div><p class="section-desc">Termine le Coran (604 pages) à ton rythme, avec un petit objectif chaque jour. Tu peux lire les pages directement ici.</p>
+<div class="panel"><div id="planBox"></div><div id="planReader"></div></div></section>
 
 <section class="section reveal" id="asma"><div class="section-kicker">Les plus beaux noms</div><h2 class="section-title">Les 99 noms d’Allah</h2><div class="ornament">۞</div><p class="section-desc">« À Allah appartiennent les plus beaux noms. » (Coran 7:180, sens)</p>
 <div class="row" style="margin-top:18px"><input id="asmaSearch" class="field" placeholder="Rechercher un nom…" aria-label="Rechercher un nom d’Allah"></div>
@@ -440,7 +461,17 @@ footer .brand{justify-content:center}footer strong{color:var(--gold2)}
 
 <section class="section reveal" id="calendrier"><div class="section-kicker">Repères du temps</div><h2 class="section-title">Calendrier islamique</h2><div class="ornament">☾</div>
 <div class="panel"><div style="font-size:42px">🌙</div><h3 id="hijriDate" class="section-title">Chargement…</h3><p id="gregorianDate" class="muted"></p><p class="muted" style="font-size:12px">La date hégirienne peut varier d’un jour selon l’observation locale du croissant lunaire.</p></div>
-<div class="events" id="events"></div></section>
+<div class="events" id="events"></div>
+<div class="today-grid" style="margin-top:20px">
+  <div class="card" id="fasts"></div>
+  <div class="card" id="converter">
+    <span class="tag">Convertisseur de dates</span>
+    <label class="muted" style="font-size:12px;display:grid;gap:6px">Date grégorienne<input type="date" id="convGreg" class="field"></label>
+    <p id="convGregOut" style="font:600 20px 'Playfair Display',serif;color:var(--gold2);margin:10px 0"></p>
+    <div class="row" style="justify-content:flex-start"><input id="convHD" class="field" style="min-width:70px;width:80px" inputmode="numeric" placeholder="Jour" aria-label="Jour hégirien"><select id="convHM" class="field" aria-label="Mois hégirien"></select><input id="convHY" class="field" style="min-width:90px;width:100px" inputmode="numeric" placeholder="Année" aria-label="Année hégirienne"><button class="btn btn-small" id="convBtn" type="button">CONVERTIR</button></div>
+    <p id="convHijriOut" style="font:600 18px 'Playfair Display',serif;color:var(--gold2);margin:10px 0 0"></p>
+  </div>
+</div></section>
 
 <section class="section reveal" id="quiz"><div class="section-kicker">Teste tes connaissances</div><h2 class="section-title">Quiz islamique</h2><div class="ornament">✧</div>
 <div class="panel"><div id="quizBox"></div></div></section>
@@ -456,10 +487,12 @@ footer .brand{justify-content:center}footer strong{color:var(--gold2)}
   <p>La foi au cœur de ton quotidien.</p>
   <p><a data-don href="https://www.paypal.com/donate/?hosted_button_id=3FBNLMGT3JAJ2" target="_blank" rel="noopener noreferrer" style="color:var(--gold2)">🇵🇸 Faire un don pour la Palestine</a></p>
   <p>Créé avec soin par <strong>KIMAX & YOUNES</strong></p>
-  <small>© <span id="year"></span> KIMAX ISLAM — Tous droits réservés.</small>
+  <p><button class="chip" id="shareSite" type="button">↗ Partager le site</button></p>
+  <small>© <span id="year"></span> KIMAX ISLAM — Tous droits réservés. · Version 2.0</small>
   <p>Qu’Allah nous guide et accepte nos œuvres. آمين</p>
 </footer>
 <button id="toTop" type="button" aria-label="Remonter en haut">↑</button>
+<div id="updateBar" class="update-bar hidden" role="status"><span>✨ Une nouvelle version est disponible</span><button class="btn btn-small" id="updateBtn" type="button">METTRE À JOUR</button></div>
 <div id="iosHelp" class="ios-help hidden" role="dialog" aria-modal="true" aria-labelledby="iosTitle">
   <div class="ios-card">
     <button class="icon-tool ios-close" id="iosClose" type="button" aria-label="Fermer">✕</button>
@@ -499,6 +532,8 @@ const SECTIONS=[
 ["coran","📖","Le Saint Coran","Lecture, traduction et audio."],
 ["prieres","🕌","Horaires de prière","Selon ta ville + suivi quotidien."],
 ["tasbih","📿","Tasbih","Un compteur pour tes adhkar."],
+["adhkar","🌅","Adhkar matin & soir","Ta routine quotidienne à cocher."],
+["plan","📆","Plan de lecture","Termine le Coran à ton rythme."],
 ["asma","✨","99 noms d’Allah","Découvre leur sens."],
 ["douas","🤲","Invocations","Douas par moment de la journée."],
 ["hadiths","📜","Hadiths","Paroles du Prophète ﷺ."],
@@ -974,6 +1009,188 @@ function renderQuiz(){
   box.append(opts);
 }
 
+/* ===== Ouvrir une sourate depuis n'importe où ===== */
+async function openSurah(n,ayah){
+  await loadSurah(n);
+  const v=ayah&&$("verse-"+(ayah-1));
+  (v||$("coran")).scrollIntoView({behavior:reduceMotion?"auto":"smooth",block:v?"center":"start"});
+}
+
+/* ===== Recherche dans le Coran ===== */
+async function searchQuran(){
+  const q=$("qSearch").value.trim(),out=$("qResults");out.replaceChildren();
+  if(q.length<3){out.append(el("p","empty","Écris au moins 3 lettres."));return}
+  out.append(el("p","status","Recherche en cours…"));
+  try{
+    const r=await fetch(`${API}search/${encodeURIComponent(q)}/all/fr.hamidullah`);const j=await r.json();out.replaceChildren();
+    const m=j&&j.data&&j.data.matches;
+    if(j.code!==200||!m||!m.length){out.append(el("p","empty","Aucun résultat pour « "+q+" »."));return}
+    out.append(el("p","muted",`${j.data.count} résultat${j.data.count>1?"s":""} · les 25 premiers sont affichés. Touche un résultat pour l’ouvrir.`));
+    m.slice(0,25).forEach(x=>{
+      const b=el("button","search-hit");b.type="button";
+      b.append(el("b","",`${x.surah.englishName} · ${x.surah.number}:${x.numberInSurah}`),el("span","",x.text));
+      b.addEventListener("click",()=>openSurah(x.surah.number,x.numberInSurah));out.append(b);
+    });
+  }catch{out.replaceChildren(el("p","empty","La recherche n’a pas pu aboutir. Vérifie ta connexion."))}
+}
+function initSearch(){
+  $("qSearchBtn").addEventListener("click",searchQuran);
+  $("qSearch").addEventListener("keydown",e=>{if(e.key==="Enter")searchQuran()});
+}
+
+/* ===== Adhkar du matin et du soir ===== */
+let adhkarMode=new Date().getHours()<15?"matin":"soir",kursiLoaded=false;
+function adhkarList(){
+  const mulk=adhkarMode==="matin"
+   ?{id:"mulk",t:"Le royaume appartient à Allah",ar:"أَصْبَحْنَا وَأَصْبَحَ الْمُلْكُ لِلَّهِ وَالْحَمْدُ لِلَّهِ لَا إِلَهَ إِلَّا اللَّهُ وَحْدَهُ لَا شَرِيكَ لَهُ",tr:"Asbahna wa asbaha l-mulku lillah, wal-hamdu lillah, la ilaha illa Allahu wahdahu la sharika lah",fr:"Nous voici au matin et la royauté appartient à Allah. Louange à Allah. Il n’y a de divinité qu’Allah, Seul, sans associé.",n:1,s:"Rapporté par Muslim"}
+   :{id:"mulk",t:"Le royaume appartient à Allah",ar:"أَمْسَيْنَا وَأَمْسَى الْمُلْكُ لِلَّهِ وَالْحَمْدُ لِلَّهِ لَا إِلَهَ إِلَّا اللَّهُ وَحْدَهُ لَا شَرِيكَ لَهُ",tr:"Amsayna wa amsa l-mulku lillah, wal-hamdu lillah, la ilaha illa Allahu wahdahu la sharika lah",fr:"Nous voici au soir et la royauté appartient à Allah. Louange à Allah. Il n’y a de divinité qu’Allah, Seul, sans associé.",n:1,s:"Rapporté par Muslim"};
+  return [
+   {id:"kursi",kind:"kursi",t:"Ayat al-Kursi",n:1,s:"Coran 2:255"},
+   {id:"suras",kind:"suras",t:"Al-Ikhlas, Al-Falaq et An-Nas",n:3,s:"3 fois chacune · Abou Dawoud, at-Tirmidhi"},
+   mulk,
+   {id:"damm",t:"Protection",ar:"بِسْمِ اللَّهِ الَّذِي لَا يَضُرُّ مَعَ اسْمِهِ شَيْءٌ فِي الْأَرْضِ وَلَا فِي السَّمَاءِ وَهُوَ السَّمِيعُ الْعَلِيمُ",tr:"Bismillahi lladhi la yadurru ma’a smihi shay’un fi l-ardi wa la fi s-sama’i wa huwa s-sami’u l-‘alim",fr:"Au nom d’Allah, avec le nom de qui rien ne nuit sur terre ni dans le ciel, et Il est l’Audient, l’Omniscient.",n:3,s:"Abou Dawoud, at-Tirmidhi"},
+   {id:"tasb",t:"Gloire et louange",ar:"سُبْحَانَ اللَّهِ وَبِحَمْدِهِ",tr:"SubhanAllahi wa bihamdih",fr:"Gloire et louange à Allah.",n:100,s:"Rapporté par Muslim"},
+   {id:"istigh",t:"Demander pardon",ar:"أَسْتَغْفِرُ اللَّهَ وَأَتُوبُ إِلَيْهِ",tr:"Astaghfirullaha wa atubu ilayh",fr:"Je demande pardon à Allah et je me repens à Lui.",n:100,s:"Rapporté par Muslim"}];
+}
+async function loadKursi(){
+  if(kursiLoaded)return;
+  try{
+    const r=await fetch(API+"ayah/2:255/editions/quran-uthmani,fr.hamidullah");const j=await r.json();if(j.code!==200)throw Error();
+    kursiLoaded=true;const a=$("kursiAr"),f=$("kursiFr");if(a)a.textContent=j.data[0].text;if(f)f.textContent=j.data[1].text;
+  }catch{const a=$("kursiAr");if(a)a.textContent="Touche « Ouvrir dans le Coran » pour lire ce verset."}
+}
+function renderAdhkar(){
+  const key=`${todayKey()}:${adhkarMode}`,log=store.get("kimaxAdhkar",{}),done=log[key]||[],list=adhkarList();
+  const tabs=$("adhkarTabs");tabs.replaceChildren();
+  [["matin","🌅 Matin"],["soir","🌙 Soir"]].forEach(([m,l])=>{
+    const b=el("button","chip"+(m===adhkarMode?" active":""),l);b.type="button";b.addEventListener("click",()=>{adhkarMode=m;kursiLoaded=false;renderAdhkar()});tabs.append(b)});
+  const pct=Math.round(list.filter(a=>done.includes(a.id)).length/list.length*100);
+  $("adhkarBar").style.width=pct+"%";
+  $("adhkarText").textContent=pct===100?"MashaAllah, tes adhkar sont terminés ! 🌟":`${list.filter(a=>done.includes(a.id)).length} / ${list.length} terminés`;
+  const box=$("adhkarList");box.replaceChildren();
+  list.forEach(a=>{
+    const c=el("div","card dua-card"+(done.includes(a.id)?" adhkar-done":""));
+    c.append(el("span","cat",a.n>1?`À répéter ${a.n} fois`:"1 fois"),el("h3","",a.t));
+    if(a.kind==="kursi"){const p=el("p","arabic","…");p.id="kursiAr";const f=el("p","muted","");f.id="kursiFr";c.append(p,f)}
+    else if(a.kind==="suras")c.append(el("p","muted","Les trois dernières sourates courtes du Coran."));
+    else c.append(el("p","arabic",a.ar),el("p","",a.tr),el("p","muted",a.fr));
+    c.append(el("p","src",a.s));
+    const tools=el("div","verse-tools");
+    if(a.kind==="kursi"){const o=el("button","verse-tool","Ouvrir dans le Coran");o.type="button";o.addEventListener("click",()=>openSurah(2,255));tools.append(o)}
+    if(a.kind==="suras")[[112,"Al-Ikhlas"],[113,"Al-Falaq"],[114,"An-Nas"]].forEach(([n,l])=>{const o=el("button","verse-tool",l);o.type="button";o.addEventListener("click",()=>openSurah(n));tools.append(o)});
+    const ok=el("button","verse-tool",done.includes(a.id)?"↺ Annuler":"✓ Fait");ok.type="button";
+    ok.addEventListener("click",()=>{
+      const l=store.get("kimaxAdhkar",{}),cur=l[key]||[];
+      l[key]=cur.includes(a.id)?cur.filter(x=>x!==a.id):[...cur,a.id];
+      const ks=Object.keys(l).sort().slice(-30),t={};ks.forEach(k=>t[k]=l[k]);store.set("kimaxAdhkar",t);
+      renderAdhkar();if(l[key].length===list.length)toast("MashaAllah, adhkar terminés ! 🌟");
+    });
+    tools.append(ok);c.append(tools);box.append(c);
+  });
+  loadKursi();
+}
+function initAdhkar(){renderAdhkar()}
+
+/* ===== Plan de lecture du Coran ===== */
+const MUSHAF_PAGES=604;
+const dateFromKey=k=>{const[y,m,d]=k.split("-").map(Number);return new Date(y,m-1,d,12)};
+let readerPage=1;
+function renderPlan(){
+  const box=$("planBox");box.replaceChildren();
+  const plan=store.get("kimaxPlan",null);
+  if(!plan){
+    box.append(el("p","","En combien de jours veux-tu terminer le Coran ?"));
+    const row=el("div","row");
+    [[30,"30 jours (Ramadan)"],[60,"60 jours"],[90,"3 mois"],[180,"6 mois"],[365,"1 an"]].forEach(([d,l])=>{const b=el("button","chip",l);b.type="button";b.addEventListener("click",()=>{$("planDays").value=d;upd()});row.append(b)});
+    const inp=el("input","field");inp.id="planDays";inp.type="number";inp.min="1";inp.max="730";inp.value="30";inp.setAttribute("aria-label","Nombre de jours");inp.style.width="110px";
+    const info=el("p","status");const go=el("button","btn","COMMENCER");go.type="button";
+    const upd=()=>{const d=Math.max(1,Math.min(730,parseInt($("planDays").value,10)||30));info.textContent=`≈ ${Math.ceil(MUSHAF_PAGES/d)} page${Math.ceil(MUSHAF_PAGES/d)>1?"s":""} par jour`};
+    inp.addEventListener("input",upd);
+    go.addEventListener("click",()=>{const d=Math.max(1,Math.min(730,parseInt($("planDays").value,10)||30));store.set("kimaxPlan",{start:todayKey(),days:d,done:[]});toast("Plan lancé, bismillah !");renderPlan()});
+    box.append(row,el("div","row","")); const r2=el("div","row");r2.style.marginTop="12px";r2.append(inp,go);box.append(r2,info);upd();
+    return;
+  }
+  const ppd=Math.ceil(MUSHAF_PAGES/plan.days);
+  const elapsed=Math.round((dateFromKey(todayKey())-dateFromKey(plan.start))/864e5);
+  const idx=Math.max(1,Math.min(plan.days,elapsed+1)),finished=elapsed+1>plan.days;
+  const from=(idx-1)*ppd+1,to=Math.min(MUSHAF_PAGES,idx*ppd),doneToday=plan.done.includes(idx);
+  const missed=Array.from({length:idx-1},(_,i)=>i+1).filter(d=>!plan.done.includes(d)).length;
+  const top=el("div","plan-top");
+  top.append(el("span","tag",`Jour ${idx} / ${plan.days}`),
+    el("div","plan-big",from>MUSHAF_PAGES?"Rien à lire":(from===to?`Page ${from}`:`Pages ${from} → ${to}`)),
+    el("p","muted",`${ppd} page${ppd>1?"s":""} par jour · ${plan.done.length} jour${plan.done.length>1?"s":""} validé${plan.done.length>1?"s":""}${missed?` · ${missed} jour${missed>1?"s":""} de retard`:""}`));
+  const bar=el("div","progress"),fill=el("div");fill.style.width=Math.round(plan.done.length/plan.days*100)+"%";bar.append(fill);
+  const row=el("div","row");
+  const read=el("button","btn","📖 LIRE LES PAGES");read.type="button";read.addEventListener("click",()=>{readPage(Math.min(from,MUSHAF_PAGES));$("planReader").scrollIntoView({behavior:"smooth"})});
+  const ok=el("button","btn btn-ghost",doneToday?"↺ Annuler la validation":"✓ J’ai lu mes pages");ok.type="button";
+  ok.addEventListener("click",()=>{const p=store.get("kimaxPlan",plan);p.done=p.done.includes(idx)?p.done.filter(x=>x!==idx):[...p.done,idx];store.set("kimaxPlan",p);renderPlan();if(p.done.length===p.days)toast("MashaAllah, tu as terminé le Coran ! 🌟");else if(p.done.includes(idx))toast("Bravo, continue ! 🌙")});
+  const reset=el("button","btn btn-ghost","RECOMMENCER");reset.type="button";reset.addEventListener("click",()=>{if(confirm("Recommencer un nouveau plan ? Ta progression actuelle sera effacée.")){store.set("kimaxPlan",null);$("planReader").replaceChildren();renderPlan()}});
+  row.append(read,ok,reset);box.append(top,bar,row);
+  if(finished)box.append(el("p","status","La durée du plan est écoulée. Tu peux le terminer ou en recommencer un."));
+}
+async function readPage(n){
+  n=Math.max(1,Math.min(MUSHAF_PAGES,n));readerPage=n;
+  const root=$("planReader");root.replaceChildren(el("p","status","Chargement de la page "+n+"…"));
+  try{
+    const r=await fetch(API+`page/${n}/editions/quran-uthmani,fr.hamidullah`);const j=await r.json();if(j.code!==200)throw Error();
+    const ar=j.data[0].ayahs,fr=j.data[1].ayahs;root.replaceChildren();
+    const head=el("div","plan-reader-head");
+    const prev=el("button","chip","← Précédente");prev.type="button";prev.disabled=n<=1;prev.addEventListener("click",()=>readPage(n-1));
+    const next=el("button","chip","Suivante →");next.type="button";next.disabled=n>=MUSHAF_PAGES;next.addEventListener("click",()=>readPage(n+1));
+    head.append(prev,el("strong","",`Page ${n} / ${MUSHAF_PAGES}`),next);root.append(head);
+    ar.forEach((a,i)=>{
+      if(a.numberInSurah===1)root.append(el("div","surah-sep",a.surah.name));
+      const art=el("article","verse");art.append(el("div","arabic",a.text),el("p","translation",`${a.numberInSurah}. ${fr[i]?.text||""}`));root.append(art);
+    });
+    const foot=head.cloneNode(true);
+    foot.querySelectorAll("button")[0].addEventListener("click",()=>readPage(n-1));foot.querySelectorAll("button")[1].addEventListener("click",()=>readPage(n+1));
+    root.append(foot);
+  }catch{root.replaceChildren(el("p","empty","La page n’a pas pu être chargée. Vérifie ta connexion."))}
+}
+function initPlan(){renderPlan()}
+
+/* ===== Jeûnes conseillés + convertisseur de dates ===== */
+function nextHijriDay(day){
+  const base=noonOf(new Date());
+  for(let i=0;i<=40;i++){const dt=new Date(base.getTime()+i*864e5),h=hijriOf(dt);if(h&&h.day===day)return{days:i,date:dt}}
+  return null;
+}
+function hijriToGreg(y,m,d){
+  const est=Math.floor(y*0.970229+621.5774),start=new Date(est-1,0,1,12);
+  for(let i=0;i<=800;i++){const dt=new Date(start.getTime()+i*864e5),h=hijriOf(dt);if(h&&h.year===y&&h.month===m&&h.day===d)return dt}
+  return null;
+}
+function initCalendarExtras(){
+  const fmt=d=>new Intl.DateTimeFormat("fr-FR",{weekday:"long",day:"numeric",month:"long"}).format(d);
+  const f=$("fasts");f.replaceChildren(el("span","tag","Jeûnes surérogatoires conseillés"));
+  const now=noonOf(new Date()),dow=now.getDay();
+  const dMon=(1-dow+7)%7,dThu=(4-dow+7)%7,d=Math.min(dMon,dThu);
+  f.append(el("h3","",d===0?"Aujourd’hui : "+(dow===1?"lundi":"jeudi"):`Prochain jeûne : ${dMon<dThu?"lundi":"jeudi"}`),
+    el("p","muted",`${fmt(new Date(now.getTime()+d*864e5))} · le lundi et le jeudi sont des jours de jeûne recommandé`));
+  const h=hijriOf(new Date());
+  if(h){
+    if(h.day>=13&&h.day<=15)f.append(el("h3","","Jours blancs : en cours 🌕"),el("p","muted","Les 13, 14 et 15 de chaque mois hégirien."));
+    else{const n=nextHijriDay(13);if(n)f.append(el("h3","","Jours blancs : "+whenText(n.days).toLowerCase()),el("p","muted",`À partir du ${fmt(n.date)} · les 13, 14 et 15 de chaque mois hégirien`))}
+  }
+  f.append(el("p","src","On ne jeûne pas le jour de l’Aïd. Rappels indicatifs."));
+  if(!hijriFmt){$("convGregOut").textContent="Conversion non disponible sur ce navigateur.";return}
+  const sel=$("convHM");HIJRI_MONTHS.forEach((m,i)=>{const o=document.createElement("option");o.value=i+1;o.textContent=m;sel.append(o)});
+  const g=$("convGreg");g.value=todayKey();
+  const conv=()=>{if(!g.value){$("convGregOut").textContent="";return}const hh=hijriOf(new Date(g.value+"T12:00:00"));$("convGregOut").textContent=hh?hijriLabel(hh):"—"};
+  g.addEventListener("input",conv);conv();
+  $("convBtn").addEventListener("click",()=>{
+    const dd=parseInt($("convHD").value,10),yy=parseInt($("convHY").value,10),mm=parseInt(sel.value,10),out=$("convHijriOut");
+    if(!(dd>=1&&dd<=30)||!(yy>=1300&&yy<=1600)){out.textContent="Entre un jour (1-30) et une année valide (ex. 1448).";return}
+    const r=hijriToGreg(yy,mm,dd);out.textContent=r?new Intl.DateTimeFormat("fr-FR",{dateStyle:"full"}).format(r):"Date introuvable.";
+  });
+}
+
+/* ===== Partage du site ===== */
+$("shareSite").addEventListener("click",async()=>{
+  const data={title:"KIMAX ISLAM",text:"KIMAX ISLAM — Coran, prières, tasbih, douas et plus.",url:location.origin+"/"};
+  if(navigator.share){try{await navigator.share(data)}catch{}}else copyText(data.url,"Lien copié");
+});
+
 /* ===== Application installable (PWA) ===== */
 let installEvent=null;
 const isStandalone=()=>matchMedia("(display-mode: standalone)").matches||navigator.standalone===true;
@@ -991,14 +1208,24 @@ const closeIos=()=>$("iosHelp").classList.add("hidden");
 $("iosOk").addEventListener("click",closeIos);$("iosClose").addEventListener("click",closeIos);
 $("iosHelp").addEventListener("click",e=>{if(e.target.id==="iosHelp")closeIos()});
 document.addEventListener("keydown",e=>{if(e.key==="Escape")closeIos()});
+/* Mise à jour automatique : l'appli vérifie à chaque ouverture et propose de recharger */
 if("serviceWorker" in navigator&&location.protocol.startsWith("http")){
-  addEventListener("load",()=>navigator.serviceWorker.register("sw.js").catch(()=>{}));
+  const hadController=!!navigator.serviceWorker.controller;
+  const showUpdate=()=>$("updateBar").classList.remove("hidden");
+  $("updateBtn").addEventListener("click",()=>location.reload());
+  navigator.serviceWorker.addEventListener("controllerchange",()=>{if(hadController)showUpdate()});
+  addEventListener("load",()=>{
+    navigator.serviceWorker.register("sw.js").then(reg=>{
+      reg.update().catch(()=>{});
+      document.addEventListener("visibilitychange",()=>{if(!document.hidden)reg.update().catch(()=>{})});
+    }).catch(()=>{});
+  });
 }
 
 /* ===== Démarrage ===== */
 $("qiblaBtn").addEventListener("click",getQibla);$("compassBtn").addEventListener("click",enableCompass);
 initTheme();initDates();renderFavorites();renderDuas();renderHadiths();initTasbih();initZakat();renderTracker();renderQuiz();
-initPrayers();initAsma();initVotd();initQuran();
+initPrayers();initAsma();initVotd();initQuran();initSearch();initAdhkar();initPlan();initCalendarExtras();
 </script>
 </body>
 </html>
